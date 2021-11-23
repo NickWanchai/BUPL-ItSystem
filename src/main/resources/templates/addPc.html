@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"><head>
+<head>
+    <meta charset="UTF-8">
+    <title>Add PC</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/addPc}" th:object="${device}" method="post" align="left">
+
+
+    Vælg Type:
+    <select>
+        <option th:each="type: ${type}"
+                th:text="{$type.type}">
+        </option>
+    </select>
+
+
+    <p>Navn: <input type="text" th:field="{name}" required></p>
+
+
+    <input type="submit" value="Tilføj" class="btn add2"/>
+</form>
+
+
+
+
+
+</body>
+</html>

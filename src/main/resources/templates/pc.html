@@ -6,23 +6,33 @@
 
 <body>
 
-<h1> PC E KOM OG SKE, DER ER BlE</h1>
+<h1> Alle PC</h1>
 
-<!--<div class="card" tr th:each="pc: ${pc}" style="width:200px">-->
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Name</th>
+    </tr>
+    </thead>
 
-<!--    <tbody>-->
+    <tbody>
 
-<!--    <thead>-->
-<!--    <tr> Navn:</tr>-->
-<!--    </thead>-->
+    <tr th:each="pc: ${pcs}">
+        <!--/*@thymesVar id="studentId" type=""*/-->
+        <td th:text="${pc.getName()}"></td>
+    </tr>
 
-<!--    <tr>-->
-<!--        <td th:text="${pc.getName()}"></td>-->
-<!--    </tr>-->
+    </tbody>
+</table>
 
-<!--    </tbody>-->
 
-<!--</div>-->
+    Vælg Type:
+    <select>
+        <option th:each="type: ${types}"
+                th:text="{$type.type}">
+        </option>
+    </select>
 
 
 </body>

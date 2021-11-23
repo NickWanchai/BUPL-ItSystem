@@ -2,21 +2,25 @@ package itsystem.demo.Model;
 
 public class Device {
 
+    private int id;
     private String name;
-    private String status;
-    private String product;
-    private String serialNr;
-    private int imeiNr;
+    private String type;
 
     public Device() {
     }
 
-    public Device(String name, String status, String product, String serialNr, int imeiNr) {
+    public Device(int id, String name, String type) {
+        this.id = id;
         this.name = name;
-        this.status = status;
-        this.product = product;
-        this.serialNr = serialNr;
-        this.imeiNr = imeiNr;
+        this.type = type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -27,35 +31,11 @@ public class Device {
         this.name = name;
     }
 
-    public String getStatus() {
-        return status;
+    public String getType() {
+        return type;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getProduct() {
-        return product;
-    }
-
-    public void setProduct(String product) {
-        this.product = product;
-    }
-
-    public String getSerialNr() {
-        return serialNr;
-    }
-
-    public void setSerialNr(String serialNr) {
-        this.serialNr = serialNr;
-    }
-
-    public int getImeiNr() {
-        return imeiNr;
-    }
-
-    public void setImeiNr(int imeiNr) {
-        this.imeiNr = imeiNr;
+    public void setType(String type) {
+        this.type = type;
     }
 }
