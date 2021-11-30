@@ -1,22 +1,12 @@
 package itsystem.demo.Controller;
 
-import itsystem.demo.Repository.DeviceRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import java.util.*;
 
 
 @Controller
 public class DeviceController {
-
-    private DeviceRepo dRepo;
-
-
-    public DeviceController(DeviceRepo dRepo) {
-        this.dRepo = dRepo;
-    }
 
     @GetMapping("/deviceStartside")
     public String deviceStartside() {
@@ -24,22 +14,21 @@ public class DeviceController {
     }
 
 
-    @GetMapping("/pc")
-    public String allPc(Model model) {
-        model.addAttribute("pcs", dRepo.findAll());
-        return "pc";
-    }
+//    @GetMapping("/pc")
+//    public String allPc(Model model) {
+//        model.addAttribute("pcs", dRepo.findAll());
+//        return "pc";
+//    }
 
-    @ModelAttribute("types")
-    public List<Type> getType(){
-        List<Type> list = new ArrayList<Type>();
-            list.add(new Type("PC"));
-            list.add(new Type("Mobil"));
-            return list;
-    }
+//    @ModelAttribute("types")
+//    public List<Type> getType(){
+//        List<Type> list = new ArrayList<Type>();
+//            list.add(new Type("PC"));
+//            list.add(new Type("Mobil"));
+//            return list;
+//    }
 
-
-
+//
 //    @GetMapping("/addPc")
 //    public String addPlayer(Model model) {
 //        model.addAttribute("pc", new Device());

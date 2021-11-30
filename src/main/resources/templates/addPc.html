@@ -9,12 +9,7 @@
 <form action="#" th:action="@{/addPc}" th:object="${device}" method="post" align="left">
 
 
-    Vælg Type:
-    <select>
-        <option th:each="type: ${type}"
-                th:text="{$type.type}">
-        </option>
-    </select>
+
 
 
     <p>Navn: <input type="text" th:field="{name}" required></p>
