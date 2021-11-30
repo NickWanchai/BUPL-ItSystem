@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>TEST</title>
+    <title>Hardware</title>
 </head>
 <body>
 
-    <form th:action="@{/hardware}" method="post" th:object="${hardware}">
+    <form action="#" th:action="@{/hardware}"  th:object="${hardware}" method="post">
 
         <div>
                 <select th:field="*{type}">
@@ -14,12 +14,19 @@
                             th:text="${hardware.producttype}"
                             th:value="${hardware.type}">
                 </select>
+
+        <p>Name: <input type="text" th:field="*{name}"/></p>
+
+        <p>Status: <input type="text" th:field="*{status}"/></p>
+
         </div>
 
-        <button class="btn btn-primary" type="submit">Tilføj enhed</button>
 
+        <input type="submit" value="Tilføj" class="btn add"/>
 
     </form>
 
+
 </body>
+
 </html>
