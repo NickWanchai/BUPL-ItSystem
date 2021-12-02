@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tilføj medarbejder</title>
+</head>
+<body>
+
+<h1>Tilføj medarbejder</h1>
+
+<form action="#" th:action="@{/addEmployee}" th:object="${employee}" method="post">
+
+    <div>
+        <select th:field="*{department}">
+            <option th:each="employee : ${empList}"
+                    th:text="${employee.departmentName}"
+                    th:value="${employee.department}">
+        </select>
+
+    <p>Fornavn: <input type="text" th:field="*{firstName}"/></p>
+
+    <p>Efternavn: <input type="text" th:field="*{lastName}"/></p>
+
+    <p>Telefonnummer: <input type="number" th:field="*{phoneNumber}"/></p>
+
+    <p>Adresse: <input type="text" th:field="*{address}"/></p>
+
+    <p>Leder: <input type="text" th:field="*{superior}"></p>
+
+    </div>
+
+    <input type="submit" value="Tilføj" class="btn add"/>
+
+</form>
+
+
+</body>
+</html>

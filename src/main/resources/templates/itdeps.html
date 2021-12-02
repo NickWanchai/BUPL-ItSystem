@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vis it afdeling</title>
+</head>
+<body>
+<h1>IT afdelings liste</h1>
+
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Telefonnummer</th>
+        <th>Afdeling</th>
+        <th>Adresse</th>
+        <th>Leder</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="itdep: ${itdeps}">
+        <td th:text="${itdep.getFirstName()}"></td>
+        <td th:text="${itdep.getLastName()}"></td>
+        <td th:text="${itdep.getPhoneNumber()}"></td>
+        <td th:text="${itdep.getDepartment()}"></td>
+        <td th:text="${itdep.getAddress()}"></td>
+        <td th:text="${itdep.getSuperior()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

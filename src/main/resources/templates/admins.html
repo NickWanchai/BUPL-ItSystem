@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vis admins</title>
+</head>
+<body>
+<h1>Admin liste</h1>
+
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Telefonnummer</th>
+        <th>Afdeling</th>
+        <th>Adresse</th>
+        <th>Leder</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="admin: ${admins}">
+        <td th:text="${admin.getFirstName()}"></td>
+        <td th:text="${admin.getLastName()}"></td>
+        <td th:text="${admin.getPhoneNumber()}"></td>
+        <td th:text="${admin.getDepartment()}"></td>
+        <td th:text="${admin.getAddress()}"></td>
+        <td th:text="${admin.getSuperior()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

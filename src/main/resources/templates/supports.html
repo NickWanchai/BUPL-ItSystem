@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vis support</title>
+</head>
+<body>
+
+<h1>Supportmedarbejder liste</h1>
+
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Telefonnummer</th>
+        <th>Afdeling</th>
+        <th>Adresse</th>
+        <th>Leder</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="support: ${supports}">
+        <td th:text="${support.getFirstName()}"></td>
+        <td th:text="${support.getLastName()}"></td>
+        <td th:text="${support.getPhoneNumber()}"></td>
+        <td th:text="${support.getDepartment()}"></td>
+        <td th:text="${support.getAddress()}"></td>
+        <td th:text="${support.getSuperior()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

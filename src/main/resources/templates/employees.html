@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vis medarbejdere</title>
+</head>
+<body>
+
+<h1>Medarbejder liste</h1>
+
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Telefonnummer</th>
+        <th>Afdeling</th>
+        <th>Adresse</th>
+        <th>Leder</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="employee: ${employees}">
+        <td th:text="${employee.getFirstName()}"></td>
+        <td th:text="${employee.getLastName()}"></td>
+        <td th:text="${employee.getPhoneNumber()}"></td>
+        <td th:text="${employee.getDepartment()}"></td>
+        <td th:text="${employee.getAddress()}"></td>
+        <td th:text="${employee.getSuperior()}"></td>
+    </tr>
+    <tr th:each="itdep: ${itdeps}">
+        <td th:text="${itdep.getFirstName()}"></td>
+        <td th:text="${itdep.getLastName()}"></td>
+        <td th:text="${itdep.getPhoneNumber()}"></td>
+        <td th:text="${itdep.getDepartment()}"></td>
+        <td th:text="${itdep.getAddress()}"></td>
+        <td th:text="${itdep.getSuperior()}"></td>
+    </tr>
+    <tr th:each="support: ${supports}">
+        <td th:text="${support.getFirstName()}"></td>
+        <td th:text="${support.getLastName()}"></td>
+        <td th:text="${support.getPhoneNumber()}"></td>
+        <td th:text="${support.getDepartment()}"></td>
+        <td th:text="${support.getAddress()}"></td>
+        <td th:text="${support.getSuperior()}"></td>
+    </tr>
+    <tr th:each="admin: ${admins}">
+        <td th:text="${admin.getFirstName()}"></td>
+        <td th:text="${admin.getLastName()}"></td>
+        <td th:text="${admin.getPhoneNumber()}"></td>
+        <td th:text="${admin.getDepartment()}"></td>
+        <td th:text="${admin.getAddress()}"></td>
+        <td th:text="${admin.getSuperior()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
