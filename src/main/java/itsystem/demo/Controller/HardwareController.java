@@ -1,15 +1,19 @@
 package itsystem.demo.Controller;
 import itsystem.demo.Model.*;
+import itsystem.demo.Repository.HardwareRepo;
+import itsystem.demo.Repository.PCRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class HardwareController {
+
+    private PCRepo pcRepo;
+    private HardwareRepo hardwareRepo;
 
     @GetMapping("/hardware")
     public String hardware(Model model) {
@@ -23,7 +27,6 @@ public class HardwareController {
         hList.add(hardwareMobil);
         hList.add(hardwareTablet);
         hList.add(hardwarePeripheral);
-
 
         model.addAttribute("hwList", hList);
         model.addAttribute("hardware", new Hardware());
@@ -54,6 +57,7 @@ public class HardwareController {
                 hardware = new Hardware();
 
         }
+
         System.out.println(hardware.getName());
         System.out.println(hardware.getStatus());
         System.out.println(hardware.getProducttype());
@@ -61,6 +65,7 @@ public class HardwareController {
 
         System.out.println(hardware.toString());
 
+        hardwareRepo.save(hardware);
 
         return "redirect:/hardware";
     }

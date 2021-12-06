@@ -1,11 +1,17 @@
 package itsystem.demo.Model;
 
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+
 public class Hardware {
 
     //type indikere om det er en pc, tablet, mobil eller tilbehør
     private int type;
     //id er unikt så de ikke overlapper i db
-    private int id;
+    @Id
+    @Column("hardware_id")
+    private Long id;
     // navn på produktet
     private String name;
     // status for at indikere om udstyret f.eks i brug eller kasseret
@@ -22,28 +28,20 @@ public class Hardware {
         this.producttype = producttype;
     }
 
-    public Hardware(String name, String status) {
+    public Hardware(int type, String name, String status, String producttype) {
+        this.type = type;
         this.name = name;
         this.status = status;
+        this.producttype = producttype;
     }
 
-
-    public Hardware(int type, int id, String name, String status, String producttype) {
+    public Hardware(int type, Long id, String name, String status, String producttype) {
         this.type = type;
         this.id = id;
         this.name = name;
         this.status = status;
         this.producttype = producttype;
     }
-
-    public Hardware(int type, String name, String status, String producttype) {
-        this.type = type;
-        this.name = name;
-        this.status = status;
-        this.producttype = producttype;
-
-    }
-
 
     public int getType() {
         return type;
@@ -53,11 +51,11 @@ public class Hardware {
         this.type = type;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
