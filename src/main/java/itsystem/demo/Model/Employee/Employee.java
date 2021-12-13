@@ -1,4 +1,4 @@
-package itsystem.demo.Model;
+package itsystem.demo.Model.Employee;
 
 
 import org.springframework.data.annotation.Id;

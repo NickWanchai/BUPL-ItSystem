@@ -1,6 +1,9 @@
 package itsystem.demo.Controller;
 
-import itsystem.demo.Model.*;
+import itsystem.demo.Model.Employee.Admin;
+import itsystem.demo.Model.Employee.Employee;
+import itsystem.demo.Model.Employee.ITdep;
+import itsystem.demo.Model.Employee.Support;
 import itsystem.demo.Repository.Employee.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
