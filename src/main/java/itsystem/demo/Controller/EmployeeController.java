@@ -31,7 +31,7 @@ public class EmployeeController {
         return "employees";
     }
 
-    @GetMapping("/addEmployee")
+    @GetMapping("/employeeAdd")
     public String addEmployee(Model model){
         Employee empAdmin = new Admin();
         Employee empSupport = new Support();
@@ -45,10 +45,10 @@ public class EmployeeController {
         model.addAttribute("empList", empList);
         model.addAttribute("employee", new Employee());
 
-        return "addEmployee";
+        return "employeeAdd";
     }
 
-    @PostMapping("/addEmployee")
+    @PostMapping("/employeeAdd")
     public String addEmployee(@ModelAttribute("employee") Employee employee){
 
         switch (employee.getDepartment()){
@@ -69,34 +69,34 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @GetMapping("/deleteEmployee")
+    @GetMapping("/employeeEdit")
     public String deleteEmployee(Model model){
         model.addAttribute("employees", eService.findAllemp());
         model.addAttribute("supports", eService.findAllsup());
         model.addAttribute("admins", eService.findAlladmin());
         model.addAttribute("itdeps", eService.findAllit());
-        return "deleteEmployee";
+        return "employeeEdit";
     }
 
     @GetMapping("/deleteEmp/{id}")
     public String deleteEmp(@PathVariable(name = "id") Long id){
         eService.deleteEmp(id);
-        return "redirect:/deleteEmployee";
+        return "redirect:/employeeEdit";
     }
     @GetMapping("/deleteSup/{id}")
     public String deleteSupport(@PathVariable(name = "id") Long id){
         eService.deleteSupport(id);
-        return "redirect:/deleteEmployee";
+        return "redirect:/employeeEdit";
     }
     @GetMapping("/deleteAdmin/{id}")
     public String deleteAdmin(@PathVariable(name = "id") Long id){
         eService.deleteAdmin(id);
-        return "redirect:/deleteEmployee";
+        return "redirect:/employeeEdit";
     }
     @GetMapping("/deleteIT/{id}")
     public String deleteIT(@PathVariable(name = "id") Long id){
         eService.deleteIT(id);
-        return "redirect:/deleteEmployee";
+        return "redirect:/employeeEdit";
     }
 
 //    @GetMapping("/editEmp/{id}")
@@ -107,12 +107,12 @@ public class EmployeeController {
 //        return editView;
 //    }
 
-    @GetMapping ("editEmp/{id}")
+    @GetMapping ("empEdit/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model){
         Employee employee = eService.findEmpById(id);
 
         model.addAttribute("employee", employee);
-        return "editEmp";
+        return "empEdit";
 
     }
 
@@ -120,32 +120,66 @@ public class EmployeeController {
     public String updateEmp(@PathVariable("id") long id, @Valid Employee employee, BindingResult result, Model model){
         if(result.hasErrors()){
             employee.setId(id);
-            return "editEmp";
+            return "empEdit";
         }
-
         eService.saveEmp(employee);
         return "redirect:/employees";
     }
 
-    @GetMapping ("editSup/{id}")
+    @GetMapping ("supEdit/{id}")
     public String showUpdateSupForm(@PathVariable("id") long id, Model model){
         Support support = eService.findSupById(id);
 
         model.addAttribute("support", support);
-        return "editSup";
+        return "supEdit";
 
     }
 
     @PostMapping("/updateSup/{id}")
-    public String updateEmp(@PathVariable("id") long id, @Valid Support support, BindingResult result, Model model){
+    public String updateSup(@PathVariable("id") long id, @Valid Support support, BindingResult result, Model model){
         if(result.hasErrors()){
             support.setId(id);
-            return "editSup";
+            return "supEdit";
         }
-
         eService.saveEmp(support);
         return "redirect:/employees";
     }
 
+    @GetMapping ("itEdit/{id}")
+    public String showUpdateITForm(@PathVariable("id") long id, Model model){
+        ITdep iTdep = eService.findItById(id);
 
+        model.addAttribute("itdep", iTdep);
+        return "itEdit";
+
+    }
+
+    @PostMapping("/updateIT/{id}")
+    public String updateIT(@PathVariable("id") long id, @Valid ITdep iTdep, BindingResult result, Model model){
+        if(result.hasErrors()){
+            iTdep.setId(id);
+            return "itEdit";
+        }
+        eService.saveEmp(iTdep);
+        return "redirect:/employees";
+    }
+
+    @GetMapping ("adminEdit/{id}")
+    public String showUpdateAdminForm(@PathVariable("id") long id, Model model){
+        Admin admin = eService.findAdminById(id);
+
+        model.addAttribute("admin", admin);
+        return "adminEdit";
+
+    }
+
+    @PostMapping("/updateAdmin/{id}")
+    public String updateAdmin(@PathVariable("id") long id, @Valid Admin admin, BindingResult result, Model model){
+        if(result.hasErrors()){
+            admin.setId(id);
+            return "editAdmin";
+        }
+        eService.saveEmp(admin);
+        return "redirect:/employees";
+    }
 }

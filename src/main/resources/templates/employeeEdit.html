@@ -24,7 +24,7 @@
         <td th:text="${employee.getLastName()}"></td>
         <td th:text="${employee.getDepartmentName()}"></td>
         <td>
-            <a th:href="@{'/editEmp/' + ${employee.id}}">Opdater</a>
+            <a th:href="@{'/empEdit/' + ${employee.id}}">Opdater</a>
             <a th:href="@{'/deleteEmp/' + ${employee.id}}">Slet</a>
         </td>
     </tr>
@@ -34,7 +34,7 @@
         <td th:text="${support.getLastName()}"></td>
         <td th:text="${support.getDepartmentName()}"></td>
         <td>
-            <a th:href="@{'/editSup/' + ${support.id}}">Opdater</a>
+            <a th:href="@{'/supEdit/' + ${support.id}}">Opdater</a>
             <a th:href="@{'/deleteSup/' + ${support.id}}">Slet</a>
         </td>
     </tr>
@@ -44,6 +44,7 @@
         <td th:text="${admin.getLastName()}"></td>
         <td th:text="${admin.getDepartmentName()}"></td>
         <td>
+            <a th:href="@{'/adminEdit/' + ${admin.id}}">Opdater</a>
             <a th:href="@{'/deleteAdmin/' + ${admin.id}}">Slet</a>
         </td>
     </tr>
@@ -53,6 +54,7 @@
         <td th:text="${itdep.getLastName()}"></td>
         <td th:text="${itdep.getDepartmentName()}"></td>
         <td>
+            <a th:href="@{'/itEdit/' + ${itdep.id}}">Opdater</a>
             <a th:href="@{'/deleteIT/' + ${itdep.id}}">Slet</a>
         </td>
     </tr>
