@@ -5,58 +5,34 @@ import itsystem.demo.Repository.AdminRepo;
 import itsystem.demo.Repository.EmployeeRepo;
 import itsystem.demo.Repository.ITdepRepo;
 import itsystem.demo.Repository.SupportRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class EmployeeController {
 
-    private EmployeeRepo eRepo;
-    private SupportRepo sRepo;
-    private AdminRepo aRepo;
-    private ITdepRepo itRepo;
-
-    public EmployeeController(EmployeeRepo eRepo, SupportRepo sRepo, AdminRepo aRepo, ITdepRepo itRepo){
-        this.eRepo = eRepo;
-        this.sRepo = sRepo;
-        this.aRepo = aRepo;
-        this.itRepo = itRepo;
-    }
+    @Autowired
+    private EmployeeService eService;
 
 
     @GetMapping("/employees")
     public String showEmployees(Model model){
-        model.addAttribute("employees", eRepo.findAll());
-        model.addAttribute("supports", sRepo.findAll());
-        model.addAttribute("admins", aRepo.findAll());
-        model.addAttribute("itdeps", itRepo.findAll());
+        model.addAttribute("employees", eService.findAllemp());
+        model.addAttribute("supports", eService.findAllsup());
+        model.addAttribute("admins", eService.findAlladmin());
+        model.addAttribute("itdeps", eService.findAllit());
         return "employees";
     }
-
-    @GetMapping("/supports")
-    public String showSupports(Model model){
-        model.addAttribute("supports", sRepo.findAll());
-        return "supports";
-    }
-
-    @GetMapping("/admins")
-    public String showAdmins(Model model){
-        model.addAttribute("admins", aRepo.findAll());
-        return "admins";
-    }
-
-    @GetMapping("/itdeps")
-    public String showITdeps(Model model){
-        model.addAttribute("itdeps", itRepo.findAll());
-        return "itdeps";
-    }
-
 
     @GetMapping("/addEmployee")
     public String addEmployee(Model model){
@@ -92,16 +68,87 @@ public class EmployeeController {
                 employee = new Employee();
         }
 
-
-        System.out.println(employee.toString());
-        System.out.println(employee.getFirstName());
-        System.out.println(employee.getLastName());
-        System.out.println(employee.getDepartment());
-        System.out.println(employee.getDepartmentName());
-        System.out.println(employee.getPhoneNumber());
-        System.out.println(employee.getAddress());
-        System.out.println(employee.getSuperior());
-        eRepo.save(employee);
-        return "redirect:/addEmployee";
+        eService.saveEmp(employee);
+        return "redirect:/employees";
     }
+
+    @GetMapping("/deleteEmployee")
+    public String deleteEmployee(Model model){
+        model.addAttribute("employees", eService.findAllemp());
+        model.addAttribute("supports", eService.findAllsup());
+        model.addAttribute("admins", eService.findAlladmin());
+        model.addAttribute("itdeps", eService.findAllit());
+        return "deleteEmployee";
+    }
+
+    @GetMapping("/deleteEmp/{id}")
+    public String deleteEmp(@PathVariable(name = "id") Long id){
+        eService.deleteEmp(id);
+        return "redirect:/deleteEmployee";
+    }
+    @GetMapping("/deleteSup/{id}")
+    public String deleteSupport(@PathVariable(name = "id") Long id){
+        eService.deleteSupport(id);
+        return "redirect:/deleteEmployee";
+    }
+    @GetMapping("/deleteAdmin/{id}")
+    public String deleteAdmin(@PathVariable(name = "id") Long id){
+        eService.deleteAdmin(id);
+        return "redirect:/deleteEmployee";
+    }
+    @GetMapping("/deleteIT/{id}")
+    public String deleteIT(@PathVariable(name = "id") Long id){
+        eService.deleteIT(id);
+        return "redirect:/deleteEmployee";
+    }
+
+//    @GetMapping("/editEmp/{id}")
+//    public ModelAndView showEditEmp(@PathVariable(name= "id") Long id){
+//        ModelAndView editView = new ModelAndView("editEmp");
+//        Employee employee = eService.findEmpById(id);
+//        editView.addObject("editEmployee", employee);
+//        return editView;
+//    }
+
+    @GetMapping ("editEmp/{id}")
+    public String showUpdateForm(@PathVariable("id") long id, Model model){
+        Employee employee = eService.findEmpById(id);
+
+        model.addAttribute("employee", employee);
+        return "editEmp";
+
+    }
+
+    @PostMapping("/updateEmp/{id}")
+    public String updateEmp(@PathVariable("id") long id, @Valid Employee employee, BindingResult result, Model model){
+        if(result.hasErrors()){
+            employee.setId(id);
+            return "editEmp";
+        }
+
+        eService.saveEmp(employee);
+        return "redirect:/employees";
+    }
+
+    @GetMapping ("editSup/{id}")
+    public String showUpdateSupForm(@PathVariable("id") long id, Model model){
+        Support support = eService.findSupById(id);
+
+        model.addAttribute("support", support);
+        return "editSup";
+
+    }
+
+    @PostMapping("/updateSup/{id}")
+    public String updateEmp(@PathVariable("id") long id, @Valid Support support, BindingResult result, Model model){
+        if(result.hasErrors()){
+            support.setId(id);
+            return "editSup";
+        }
+
+        eService.saveEmp(support);
+        return "redirect:/employees";
+    }
+
+
 }

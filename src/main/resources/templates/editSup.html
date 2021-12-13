@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>rediger Support</title>
+</head>
+<body>
+
+<form action="#"
+      th:action="@{/updateSup/{id}(id=${support.id})}"
+      th:object="${support}"
+      method="post">
+
+
+
+    <p>Fornavn: <input type="text" th:field="*{firstName}"></p>
+    <p>Efternavn: <input type="text" th:field="*{lastName}"></p>
+    <p>Telefonnummer: <input type="number" th:field="*{phoneNumber}"></p>
+    <p>Adresse: <input type="text" th:field="*{address}"></p>
+    <p>Leder: <input type="text" th:field="*{superior}"></p>
+<!--    <p>Afdelings nummer: <input type="number" th:field="*{department}"></p>-->
+<!--    <p>Afdelings navn: <input type="text" th:field="*{departmentName}"></p>-->
+
+
+    <input type="submit" value="Opdater" class="btn add" />
+
+
+</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bekræft slet medarbejder</title>
+</head>
+<body>
+<h1>Slet medarbejder
+    <td th:text="${employee.toString()}"></td>
+</h1>
+<form action="#" th:action="@{/verifyDeleteEmployee}" method="post">
+    <input type="submit" value="Yes" class="btn delete">
+</form>
+
+<button onclick="window.location.href = 'http://localhost:9921/deletePlayer';">No</button>
+</body>
+</html>
