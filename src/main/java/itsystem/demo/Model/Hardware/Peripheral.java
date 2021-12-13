@@ -1,6 +1,8 @@
-package itsystem.demo.Model;
+package itsystem.demo.Model.Hardware;
 
-public class Peripheral extends Hardware{
+import itsystem.demo.Model.Hardware.Hardware;
+
+public class Peripheral extends Hardware {
 
     public Peripheral() {
         super(4, "Tilbehør");

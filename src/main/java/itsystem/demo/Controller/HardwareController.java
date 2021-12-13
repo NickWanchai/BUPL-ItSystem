@@ -1,7 +1,7 @@
 package itsystem.demo.Controller;
-import itsystem.demo.Model.*;
-import itsystem.demo.Repository.HardwareRepo;
-import itsystem.demo.Repository.PCRepo;
+import itsystem.demo.Model.Hardware.*;
+import itsystem.demo.Repository.Hardware.HardwareRepo;
+import itsystem.demo.Repository.Hardware.PCRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

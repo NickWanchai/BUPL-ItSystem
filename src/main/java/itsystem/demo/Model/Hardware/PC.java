@@ -1,4 +1,6 @@
-package itsystem.demo.Model;
+package itsystem.demo.Model.Hardware;
+
+import itsystem.demo.Model.Hardware.Hardware;
 
 public class PC extends Hardware {
 

@@ -1,4 +1,4 @@
-package itsystem.demo.Repository;
+package itsystem.demo.Repository.Employee;
 
 import itsystem.demo.Model.Employee;
 import itsystem.demo.Model.ITdep;

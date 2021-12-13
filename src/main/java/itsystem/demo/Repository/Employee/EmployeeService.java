@@ -1,9 +1,9 @@
-package itsystem.demo.Model;
+package itsystem.demo.Repository.Employee;
 
-import itsystem.demo.Repository.AdminRepo;
-import itsystem.demo.Repository.EmployeeRepo;
-import itsystem.demo.Repository.ITdepRepo;
-import itsystem.demo.Repository.SupportRepo;
+import itsystem.demo.Model.Admin;
+import itsystem.demo.Model.Employee;
+import itsystem.demo.Model.ITdep;
+import itsystem.demo.Model.Support;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
