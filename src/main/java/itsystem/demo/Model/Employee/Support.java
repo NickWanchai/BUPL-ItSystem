@@ -1,6 +1,8 @@
-package itsystem.demo.Model;
+package itsystem.demo.Model.Employee;
 
-public class Support extends Employee{
+import itsystem.demo.Model.Employee.Employee;
+
+public class Support extends Employee {
 
 
     public Support(){

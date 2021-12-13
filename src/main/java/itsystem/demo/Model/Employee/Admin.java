@@ -1,6 +1,6 @@
-package itsystem.demo.Model;
+package itsystem.demo.Model.Employee;
 
-public class Admin extends Employee{
+public class Admin extends Employee {
 
     public Admin(){
         super(1, "Admin");

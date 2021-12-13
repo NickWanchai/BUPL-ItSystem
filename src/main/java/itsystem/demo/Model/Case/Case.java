@@ -1,4 +1,4 @@
-package itsystem.demo.Model;
+package itsystem.demo.Model.Case;
 
 public class Case {
 

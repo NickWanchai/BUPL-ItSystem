@@ -1,7 +1,6 @@
 package itsystem.demo.Repository.Employee;
 
-import itsystem.demo.Model.Admin;
-import itsystem.demo.Model.Employee;
+import itsystem.demo.Model.Employee.Admin;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

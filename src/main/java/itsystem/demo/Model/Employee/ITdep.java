@@ -1,6 +1,8 @@
-package itsystem.demo.Model;
+package itsystem.demo.Model.Employee;
 
-public class ITdep extends Employee{
+import itsystem.demo.Model.Employee.Employee;
+
+public class ITdep extends Employee {
 
     public ITdep(){
         super(3, "IT-drift");
