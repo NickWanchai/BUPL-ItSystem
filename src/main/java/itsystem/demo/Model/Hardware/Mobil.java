@@ -1,6 +1,8 @@
-package itsystem.demo.Model;
+package itsystem.demo.Model.Hardware;
 
-public class Mobil extends Hardware{
+import itsystem.demo.Model.Hardware.Hardware;
+
+public class Mobil extends Hardware {
 
     // Bliver brugt til at vise data i HTML, ikk slet ham Nick W
     public Mobil() {

@@ -1,4 +1,4 @@
-package itsystem.demo.Model;
+package itsystem.demo.Model.Hardware;
 
 
 import org.springframework.data.annotation.Id;
@@ -6,12 +6,13 @@ import org.springframework.data.relational.core.mapping.Column;
 
 public class Hardware {
 
-    //type indikere om det er en pc, tablet, mobil eller tilbehør
-    private int type;
-    //id er unikt så de ikke overlapper i db
     @Id
     @Column("hardware_id")
     private Long id;
+
+    //type indikere om det er en pc, tablet, mobil eller tilbehør
+    private int type;
+    //id er unikt så de ikke overlapper i db
     // navn på produktet
     private String name;
     // status for at indikere om udstyret f.eks i brug eller kasseret
@@ -86,8 +87,8 @@ public class Hardware {
     @Override
     public String toString() {
         return "Hardware{" +
-                "type=" + type +
-                ", id=" + id +
+                "id=" + id +
+                ", type=" + type +
                 ", name='" + name + '\'' +
                 ", status='" + status + '\'' +
                 ", producttype='" + producttype + '\'' +

@@ -1,6 +1,8 @@
-package itsystem.demo.Model;
+package itsystem.demo.Model.Hardware;
 
-public class Tablet extends Hardware{
+import itsystem.demo.Model.Hardware.Hardware;
+
+public class Tablet extends Hardware {
 
     public Tablet() {
         super(3, "Tablet");

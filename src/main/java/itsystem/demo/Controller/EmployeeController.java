@@ -1,22 +1,16 @@
 package itsystem.demo.Controller;
 
 import itsystem.demo.Model.*;
-import itsystem.demo.Repository.AdminRepo;
-import itsystem.demo.Repository.EmployeeRepo;
-import itsystem.demo.Repository.ITdepRepo;
-import itsystem.demo.Repository.SupportRepo;
+import itsystem.demo.Repository.Employee.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class EmployeeController {
