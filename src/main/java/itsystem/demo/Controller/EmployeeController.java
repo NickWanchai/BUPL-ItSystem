@@ -99,14 +99,6 @@ public class EmployeeController {
         return "redirect:/deleteEmployee";
     }
 
-//    @GetMapping("/editEmp/{id}")
-//    public ModelAndView showEditEmp(@PathVariable(name= "id") Long id){
-//        ModelAndView editView = new ModelAndView("editEmp");
-//        Employee employee = eService.findEmpById(id);
-//        editView.addObject("editEmployee", employee);
-//        return editView;
-//    }
-
     @GetMapping ("editEmp/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model){
         Employee employee = eService.findEmpById(id);

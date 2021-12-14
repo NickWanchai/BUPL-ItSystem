@@ -1,7 +1,7 @@
 package itsystem.demo.Controller;
 import itsystem.demo.Model.Hardware.*;
-import itsystem.demo.Repository.Hardware.HardwareRepo;
-import itsystem.demo.Repository.Hardware.PCRepo;
+import itsystem.demo.Repository.Hardware.HardwareService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +12,21 @@ import java.util.List;
 @Controller
 public class HardwareController {
 
-    private PCRepo pcRepo;
-    private HardwareRepo hardwareRepo;
+    @Autowired
+    private HardwareService hardwareService;
 
     @GetMapping("/hardware")
-    public String hardware(Model model) {
+    public String showHardware(Model model){
+        model.addAttribute("hardware", hardwareService.findAllHardware());
+        model.addAttribute("pc", hardwareService.findAllPC());
+        model.addAttribute("mobil", hardwareService.findAllMobil());
+        model.addAttribute("tablet", hardwareService.findAllTablet());
+        model.addAttribute("peripheral", hardwareService.findAllPeripheral());
+        return "hardware";
+    }
+
+    @GetMapping("/hardwareAdd")
+    public String addHardware(Model model) {
         Hardware hardwarePC = new PC();
         Hardware hardwareMobil = new Mobil();
         Hardware hardwareTablet = new Tablet();
@@ -31,12 +41,12 @@ public class HardwareController {
         model.addAttribute("hwList", hList);
         model.addAttribute("hardware", new Hardware());
 
-        return "hardware";
+        return "hardwareAdd";
     }
 
 
-    @PostMapping("/hardware")
-    public String hardware(@ModelAttribute("hardware") Hardware hardware){
+    @PostMapping("/hardwareAdd")
+    public String addHardware(@ModelAttribute("hardware") Hardware hardware){
 
 
         switch (hardware.getType()){
@@ -51,7 +61,6 @@ public class HardwareController {
                 break;
             case 4:
                 hardware = new Peripheral(hardware.getType(), hardware.getName(), hardware.getStatus(), hardware.getProducttype());
-
                 break;
             default:
                 hardware = new Hardware();
@@ -65,10 +74,11 @@ public class HardwareController {
 
         System.out.println(hardware.toString());
 
-        hardwareRepo.save(hardware);
+        hardwareService.saveHardware(hardware);
 
         return "redirect:/hardware";
     }
+
 
 
 
