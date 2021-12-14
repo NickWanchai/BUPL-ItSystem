@@ -13,6 +13,7 @@ public class Employee {
     //navn
     private String firstName;
     private String lastName;
+    private String initials;
     //tlf nummer
     private int phoneNumber;
     //et int der indikerer afdelingen
@@ -32,12 +33,13 @@ public class Employee {
         this.departmentName = departmentName;
     }
 
-    public Employee(int department, String departmentName, Long id, String firstName, String lastName, int phoneNumber, String address, String superior){
+    public Employee(int department, String departmentName, Long id, String firstName, String lastName, String initials int phoneNumber, String address, String superior){
         this.department = department;
         this.departmentName = departmentName;
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.initials = initials;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.superior = superior;
@@ -52,11 +54,12 @@ public class Employee {
         this.address = address;
     }
 
-    public Employee(int department, String departmentName, String firstName, String lastName, int phoneNumber, String address, String superior){
+    public Employee(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior){
         this.department = department;
         this.departmentName = departmentName;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.initials = initials;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.superior = superior;
