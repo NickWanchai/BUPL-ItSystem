@@ -33,7 +33,7 @@ public class Employee {
         this.departmentName = departmentName;
     }
 
-    public Employee(int department, String departmentName, Long id, String firstName, String lastName, String initials int phoneNumber, String address, String superior){
+    public Employee(int department, String departmentName, Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior){
         this.department = department;
         this.departmentName = departmentName;
         this.id = id;
@@ -127,5 +127,13 @@ public class Employee {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getInitials() {
+        return initials;
+    }
+
+    public void setInitials(String initials) {
+        this.initials = initials;
     }
 }
