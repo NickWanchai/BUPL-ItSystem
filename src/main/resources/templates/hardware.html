@@ -6,27 +6,53 @@
 </head>
 <body>
 
-    <form action="#" th:action="@{/hardware}"  th:object="${hardware}" method="post">
+<h1>Harware liste</h1>
 
-        <div>
-                <select th:field="*{type}">
-                    <option th:each="hardware : ${hwList}"
-                            th:text="${hardware.producttype}"
-                            th:value="${hardware.type}">
-                </select>
-
-        <p>Name: <input type="text" th:field="*{name}"/></p>
-
-        <p>Status: <input type="text" th:field="*{status}"/></p>
-
-        </div>
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Navn</th>
+        <th>Status</th>
+        <th>Produkt type</th>
 
 
-        <input type="submit" value="Tilføj" class="btn add"/>
+    </tr>
+    </thead>
 
-    </form>
+    <tbody>
 
+        <tr th:each="hardware: ${hardware}">
+            <td th:text="${hardware.getName()}"></td>
+            <td th:text="${hardware.getStatus()}"></td>
+            <td th:text="${hardware.getProducttype()}"></td>
+        </tr>
 
+        <tr th:each="pc: ${pc}">
+            <td th:text="${pc.getName()}"></td>
+            <td th:text="${pc.getStatus()}"></td>
+            <td th:text="${pc.getProducttype()}"></td>
+        </tr>
+
+        <tr th:each="mobil: ${mobil}">
+            <td th:text="${mobil.getName()}"></td>
+            <td th:text="${mobil.getStatus()}"></td>
+            <td th:text="${mobil.getProducttype()}"></td>
+        </tr>
+
+        <tr th:each="tablet: ${tablet}">
+            <td th:text="${tablet.getName()}"></td>
+            <td th:text="${tablet.getStatus()}"></td>
+            <td th:text="${tablet.getProducttype()}"></td>
+        </tr>
+
+        <tr th:each="peripheral: ${peripheral}">
+            <td th:text="${peripheral.getName()}"></td>
+            <td th:text="${peripheral.getStatus()}"></td>
+            <td th:text="${peripheral.getProducttype()}"></td>
+        </tr>
+
+    </tbody>
+
+</table>
 </body>
-
 </html>
