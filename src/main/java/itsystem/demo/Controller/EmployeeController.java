@@ -116,6 +116,7 @@ public class EmployeeController {
 
     }
 
+
     @PostMapping("/updateEmp/{id}")
     public String updateEmp(@PathVariable("id") long id, @Valid Employee employee, BindingResult result, Model model){
         if(result.hasErrors()){
