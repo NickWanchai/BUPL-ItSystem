@@ -53,15 +53,22 @@ public class ExternalEmpController {
 
         switch (externalEmp.getDepartment()){
             case 1:
-                externalEmp = new ExtForbund(externalEmp.getDepartment(), externalEmp.getDepartmentName(), externalEmp.getFirstName(), externalEmp.getLastName(), externalEmp.getInitials(), externalEmp.getPhoneNumber(), externalEmp.getAddress(), externalEmp.getSuperior());
+                externalEmp = new ExtForbund(externalEmp.getDepartment(), externalEmp.getDepartmentName(), externalEmp.getFirstName(), externalEmp.getLastName(), externalEmp.getInitials(), externalEmp.getPhoneNumber(), externalEmp.getAddress(), externalEmp.getSuperior(), externalEmp.getPassword(), externalEmp.getEmail());
+                break;
             case 2:
-                externalEmp = new ExtHovedstad(externalEmp.getDepartment(), externalEmp.getDepartmentName(), externalEmp.getFirstName(), externalEmp.getLastName(), externalEmp.getInitials(), externalEmp.getPhoneNumber(), externalEmp.getAddress(), externalEmp.getSuperior());
+                externalEmp = new ExtHovedstad(externalEmp.getDepartment(), externalEmp.getDepartmentName(), externalEmp.getFirstName(), externalEmp.getLastName(), externalEmp.getInitials(), externalEmp.getPhoneNumber(), externalEmp.getAddress(), externalEmp.getSuperior(), externalEmp.getPassword(), externalEmp.getEmail());
+                break;
             case 3:
-                externalEmp = new ExtArhus(externalEmp.getDepartment(), externalEmp.getDepartmentName(), externalEmp.getFirstName(), externalEmp.getLastName(), externalEmp.getInitials(), externalEmp.getPhoneNumber(), externalEmp.getAddress(), externalEmp.getSuperior());
+                externalEmp = new ExtArhus(externalEmp.getDepartment(), externalEmp.getDepartmentName(), externalEmp.getFirstName(), externalEmp.getLastName(), externalEmp.getInitials(), externalEmp.getPhoneNumber(), externalEmp.getAddress(), externalEmp.getSuperior(), externalEmp.getPassword(), externalEmp.getEmail());
+                break;
             case 4:
-                externalEmp = new ExtFyn(externalEmp.getDepartment(), externalEmp.getDepartmentName(), externalEmp.getFirstName(), externalEmp.getLastName(), externalEmp.getInitials(), externalEmp.getPhoneNumber(), externalEmp.getAddress(), externalEmp.getSuperior());
+                externalEmp = new ExtFyn(externalEmp.getDepartment(), externalEmp.getDepartmentName(), externalEmp.getFirstName(), externalEmp.getLastName(), externalEmp.getInitials(), externalEmp.getPhoneNumber(), externalEmp.getAddress(), externalEmp.getSuperior(), externalEmp.getPassword(), externalEmp.getEmail());
+                break;
+            default:
+                externalEmp = new ExternalEmp();
         }
 
+        System.out.println(externalEmp.toString());
         exService.saveExtEmp(externalEmp);
         return "redirect:/extEmployees";
     }

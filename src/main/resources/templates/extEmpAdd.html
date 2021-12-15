@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tilføj ekstern medarbejder</title>
+</head>
+<body>
+<h1>Tilføj ekstern medarbejder</h1>
+
+<form action="#" th:action="@{/extEmpAdd}" th:object="${extEmp}" method="post">
+
+    <div>
+        <select th:field="*{department}">
+            <option th:each="extEmp : ${extEmpList}"
+                    th:text="${extEmp.departmentName}"
+                    th:value="${extEmp.department}">
+        </select>
+
+        <p>Fornavn: <input type="text" th:field="*{firstName}"/></p>
+
+        <p>Efternavn: <input type="text" th:field="*{lastName}"/></p>
+
+        <p>Initialer: <input type="text" th:field="*{initials}"></p>
+
+        <p>E-mail: <input type="text" th:field="*{email}"></p>
+
+        <p>Password: <input type="text" th:field="*{password}"></p>
+
+        <p>Telefonnummer: <input type="number" th:field="*{phoneNumber}"/></p>
+
+        <p>Adresse: <input type="text" th:field="*{address}"/></p>
+
+        <p>Leder: <input type="text" th:field="*{superior}"></p>
+
+    </div>
+
+    <input type="submit" value="Tilføj" class="btn add"/>
+
+</form>
+</body>
+</html>

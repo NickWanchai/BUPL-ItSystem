@@ -9,12 +9,12 @@ public class Support extends Employee {
         super(2, "Support");
     }
 
-    public Support(Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior){
+    public Support(Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
 
-        super(2, "Support", id, firstName, lastName, initials, phoneNumber, address, superior);
+        super(2, "Support", id, firstName, lastName, initials, phoneNumber, address, superior, password, email);
     }
 
-    public Support(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior){
-        super(2, "Support", firstName, lastName, initials, phoneNumber, address, superior);
+    public Support(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
+        super(2, "Support", firstName, lastName, initials, phoneNumber, address, superior, password, email);
     }
 }

@@ -24,6 +24,10 @@ public class Employee {
     private String superior;
     //adresse
     private String address;
+    //email
+    private String email;
+    //password
+    private String password;
 
     public Employee() {
     }
@@ -33,7 +37,7 @@ public class Employee {
         this.departmentName = departmentName;
     }
 
-    public Employee(int department, String departmentName, Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior){
+    public Employee(int department, String departmentName, Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
         this.department = department;
         this.departmentName = departmentName;
         this.id = id;
@@ -43,6 +47,8 @@ public class Employee {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.superior = superior;
+        this.email = email;
+        this.password = password;
     }
 
     public Employee(String firstName, String lastName, int phoneNumber, int department, String superior, String address) {
@@ -54,7 +60,7 @@ public class Employee {
         this.address = address;
     }
 
-    public Employee(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior){
+    public Employee(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
         this.department = department;
         this.departmentName = departmentName;
         this.firstName = firstName;
@@ -63,6 +69,8 @@ public class Employee {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.superior = superior;
+        this.email = email;
+        this.password = password;
     }
 
     public Long getId() {
@@ -135,5 +143,21 @@ public class Employee {
 
     public void setInitials(String initials) {
         this.initials = initials;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

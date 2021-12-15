@@ -17,6 +17,8 @@ public class ExternalEmp{
     private String departmentName;
     private String superior;
     private String address;
+    private String password;
+    private String email;
 
     public ExternalEmp(){}
 
@@ -25,7 +27,7 @@ public class ExternalEmp{
         this.departmentName = departmentName;
     }
 
-    public ExternalEmp(int department, String departmentName, Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior){
+    public ExternalEmp(int department, String departmentName, Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
         this.department = department;
         this.departmentName = departmentName;
         this.id = id;
@@ -35,6 +37,8 @@ public class ExternalEmp{
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.superior = superior;
+        this.email = email;
+        this.password = password;
     }
 
     public ExternalEmp(String firstName, String lastName, int phoneNumber, int department, String superior, String address) {
@@ -46,7 +50,7 @@ public class ExternalEmp{
         this.address = address;
     }
 
-    public ExternalEmp(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior){
+    public ExternalEmp(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
         this.department = department;
         this.departmentName = departmentName;
         this.firstName = firstName;
@@ -55,6 +59,8 @@ public class ExternalEmp{
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.superior = superior;
+        this.email = email;
+        this.password = password;
     }
 
     public Long getId() {
@@ -127,5 +133,21 @@ public class ExternalEmp{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
