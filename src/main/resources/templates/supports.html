@@ -22,7 +22,7 @@
 
     <tbody>
     <tr th:each="support: ${supports}">
-        <td th:text="${support.getFirstName()}"></td>
+        <td th:text="${support.getFirstName()}" href="@{'/supProfile/' + ${support.id}"></td>
         <td th:text="${support.getLastName()}"></td>
         <td th:text="${support.getPhoneNumber()}"></td>
         <td th:text="${support.getDepartment()}"></td>

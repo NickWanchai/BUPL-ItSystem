@@ -69,6 +69,12 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
+    @GetMapping("/supports")
+    public String showSupports(Model model){
+        model.addAttribute("support", eService.findAllsup());
+        return "supports";
+    }
+
     @GetMapping("/employeeEdit")
     public String deleteEmployee(Model model){
         model.addAttribute("employees", eService.findAllemp());
@@ -181,5 +187,12 @@ public class EmployeeController {
         }
         eService.saveEmp(admin);
         return "redirect:/employees";
+    }
+    @GetMapping("supProfile/{id}")
+    public String supProfile(@PathVariable("id")long id, Model model){
+        Support support = eService.findSupById(id);
+
+        model.addAttribute("support", support);
+        return "supProfile";
     }
 }

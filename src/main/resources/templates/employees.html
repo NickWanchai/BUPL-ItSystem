@@ -29,6 +29,7 @@
         <td th:text="${employee.getAddress()}"></td>
         <td th:text="${employee.getSuperior()}"></td>
     </tr>
+
     <tr th:each="itdep: ${itdeps}">
         <td th:text="${itdep.getFirstName()}"></td>
         <td th:text="${itdep.getLastName()}"></td>
