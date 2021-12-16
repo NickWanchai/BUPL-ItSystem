@@ -3,6 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Vis medarbejdere</title>
+    <script>
+        function empClicked(value) {
+            location.href = "/empProfile/" + value;
+        }
+        function supClicked(value) {
+            location.href = "/supProfile/" + value;
+        }
+        function adminClicked(value) {
+            location.href = "/adminProfile/" + value;
+        }
+        function itClicked(value) {
+            location.href = "/itProfile/" + value;
+        }
+
+    </script>
 </head>
 <body>
 
@@ -21,7 +36,8 @@
     </thead>
 
     <tbody>
-    <tr th:each="employee: ${employees}">
+    <tr th:each="employee: ${employees}" style="cursor: pointer"
+        th:onclick="'javascript:empClicked(\'' + ${employee.getId()} + '\');'">
         <td th:text="${employee.getFirstName()}"></td>
         <td th:text="${employee.getLastName()}"></td>
         <td th:text="${employee.getPhoneNumber()}"></td>
@@ -30,7 +46,8 @@
         <td th:text="${employee.getSuperior()}"></td>
     </tr>
 
-    <tr th:each="itdep: ${itdeps}">
+    <tr th:each="itdep: ${itdeps}" style="cursor: pointer"
+        th:onclick="'javascript:itClicked(\'' + ${itdep.getId()} + '\');'">
         <td th:text="${itdep.getFirstName()}"></td>
         <td th:text="${itdep.getLastName()}"></td>
         <td th:text="${itdep.getPhoneNumber()}"></td>
@@ -38,15 +55,17 @@
         <td th:text="${itdep.getAddress()}"></td>
         <td th:text="${itdep.getSuperior()}"></td>
     </tr>
-    <tr th:each="support: ${supports}">
-        <td th:text="${support.getFirstName()}"></td>
+    <tr th:each="support: ${supports}" style="cursor: pointer"
+        th:onclick="'javascript:supClicked(\'' + ${support.getId()} + '\');'">
+        <td th:text="${support.getFirstName()}" ></td>
         <td th:text="${support.getLastName()}"></td>
         <td th:text="${support.getPhoneNumber()}"></td>
         <td th:text="${support.getDepartment()}"></td>
         <td th:text="${support.getAddress()}"></td>
         <td th:text="${support.getSuperior()}"></td>
     </tr>
-    <tr th:each="admin: ${admins}">
+    <tr th:each="admin: ${admins}" style="cursor: pointer"
+        th:onclick="'javascript:adminClicked(\'' + ${admin.getId()} + '\');'">
         <td th:text="${admin.getFirstName()}"></td>
         <td th:text="${admin.getLastName()}"></td>
         <td th:text="${admin.getPhoneNumber()}"></td>

@@ -45,6 +45,7 @@ public class EmployeeService {
     public Support findSupById(Long id){
         return sRepo.findById(id).get();
     }
+    //public Support findSupByName(String firstName){return sRepo.findByName(firstName);}
 
     public Admin findAdminById(Long id){
         return aRepo.findById(id).get();
@@ -53,6 +54,7 @@ public class EmployeeService {
     public ITdep findItById(Long id){
         return itRepo.findById(id).get();
     }
+
 
     public void saveEmp(Employee employee){
         eRepo.save(employee);
