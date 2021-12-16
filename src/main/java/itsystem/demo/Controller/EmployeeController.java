@@ -56,13 +56,13 @@ public class EmployeeController {
 
         switch (employee.getDepartment()){
             case 1:
-                employee = new Admin(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior());
+                employee = new Admin(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail());
                 break;
             case 2:
-                employee = new Support(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior());
+                employee = new Support(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail());
                 break;
             case 3:
-                employee = new ITdep(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior());
+                employee = new ITdep(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail());
                 break;
             default:
                 employee = new Employee();

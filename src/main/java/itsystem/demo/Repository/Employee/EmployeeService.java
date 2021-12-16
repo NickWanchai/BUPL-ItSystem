@@ -6,10 +6,11 @@ import itsystem.demo.Model.Employee.Employee;
 import itsystem.demo.Model.Employee.ITdep;
 import itsystem.demo.Model.Employee.Support;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@org.springframework.stereotype.Service
+@Service
 public class EmployeeService {
 
     @Autowired

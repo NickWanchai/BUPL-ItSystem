@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vis eksterne medarbejdere</title>
+</head>
+<body>
+
+<h1>Eksterne medarbejder liste</h1>
+
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Initialer</th>
+        <th>E-mail</th>
+        <th>Afdeling</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="extEmployee: ${extEmployee}">
+        <td th:text="${extEmployee.getFirstName()}"></td>
+        <td th:text="${extEmployee.getLastName()}"></td>
+        <td th:text="${extEmployee.getInitials()}"></td>
+        <td th:text="${extEmployee.getEmail()}"></td>
+        <td th:text="${extEmployee.getDepartmentName()}"></td>
+    </tr>
+    <tr th:each="extArhus: ${extArhus}">
+        <td th:text="${extArhus.getFirstName()}"></td>
+        <td th:text="${extArhus.getLastName()}"></td>
+        <td th:text="${extArhus.getInitials()}"></td>
+        <td th:text="${extArhus.getEmail()}"></td>
+        <td th:text="${extArhus.getDepartmentName()}"></td>
+    </tr>
+    <tr th:each="extForbund: ${extForbund}">
+        <td th:text="${extForbund.getFirstName()}"></td>
+        <td th:text="${extForbund.getLastName()}"></td>
+        <td th:text="${extForbund.getInitials()}"></td>
+        <td th:text="${extForbund.getEmail()}"></td>
+        <td th:text="${extForbund.getDepartmentName()}"></td>
+    </tr>
+    <tr th:each="extFyn: ${extFyn}">
+        <td th:text="${extFyn.getFirstName()}"></td>
+        <td th:text="${extFyn.getLastName()}"></td>
+        <td th:text="${extFyn.getInitials()}"></td>
+        <td th:text="${extFyn.getEmail()}"></td>
+        <td th:text="${extFyn.getDepartmentName()}"></td>
+    </tr>
+    <tr th:each="extHoved: ${extHoved}">
+        <td th:text="${extHoved.getFirstName()}"></td>
+        <td th:text="${extHoved.getLastName()}"></td>
+        <td th:text="${extHoved.getInitials()}"></td>
+        <td th:text="${extHoved.getEmail()}"></td>
+        <td th:text="${extHoved.getDepartmentName()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
