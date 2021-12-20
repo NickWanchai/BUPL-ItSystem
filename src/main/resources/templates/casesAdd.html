@@ -12,6 +12,12 @@
     <p>Tildelt til: <input type="text" th:field="*{assigned}"></p>
     <p>Beskrivelse: <input type="text" size="50" th:field="*{description}"></p>
     <p>Startet af: <input type="text" th:field="*{caseOwner}"></p>
+    <p>Status:
+        <select th:field="*{status}">
+            <option value="Aktiv">Aktiv</option>
+            <option value="Afsluttet">Afsluttet</option>
+        </select>
+    </p>
 
     </div>
 

@@ -1,5 +1,6 @@
 package itsystem.demo.Controller;
 
+import itsystem.demo.Repository.Case.CaseService;
 import itsystem.demo.Repository.Hardware.HardwareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,8 @@ public class HomeController {
 
     @Autowired
     HardwareService hwService = new HardwareService();
+    @Autowired
+    CaseService caseService = new CaseService();
 
     @GetMapping("/")
     public String index(Model model){
@@ -18,6 +21,8 @@ public class HomeController {
         model.addAttribute("pc", hwService.findPcByStatus("I brug"));
         model.addAttribute("peri",hwService.findPeriByStatus("I brug"));
         model.addAttribute("tablet",hwService.findTabByStatus("I brug"));
+
+        model.addAttribute("cases", caseService.findCaseByStatus("Aktiv"));
         return "index";
     }
 

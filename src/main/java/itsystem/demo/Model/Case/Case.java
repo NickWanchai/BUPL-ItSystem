@@ -17,21 +17,25 @@ public class Case {
     private String subject;
     private String description;
 
+    private String status;
+
     public Case() {
     }
 
-    public Case(Long id, String caseOwner, String assigned, String subject, String description) {
+    public Case(Long id, String caseOwner, String assigned, String subject, String description, String status) {
         this.id = id;
         this.caseOwner = caseOwner;
         this.assigned = assigned;
         this.subject = subject;
         this.description = description;
+        this.status = status;
     }
 
-    public Case(Long id, String subject, String description) {
+    public Case(Long id, String subject, String description, String status) {
         this.id = id;
         this.subject = subject;
         this.description = description;
+        this.status = status;
     }
 
     public Case(String subject, String description) {
@@ -77,5 +81,13 @@ public class Case {
 
     public void setAssigned(String assigned) {
         this.assigned = assigned;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
