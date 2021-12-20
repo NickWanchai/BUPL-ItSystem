@@ -9,7 +9,7 @@ public class Mobil extends Hardware {
         super(2, "Mobil");
     }
 
-    public Mobil(int type, String name, String status, String producttype) {
-        super(2, name, status, "mobil");
+    public Mobil(int type, String name, String status, String producttype, String productUser) {
+        super(2, name, status, "mobil", productUser);
     }
 }

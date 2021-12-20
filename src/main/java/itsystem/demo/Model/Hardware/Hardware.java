@@ -19,6 +19,8 @@ public class Hardware {
     private String status;
     // produkttype viser navnet på type
     private String producttype;
+    private String productuser;
+
 
     public Hardware() {
     }
@@ -44,6 +46,23 @@ public class Hardware {
         this.producttype = producttype;
     }
 
+    public Hardware(int type, Long id, String name, String status, String producttype, String productUser) {
+        this.type = type;
+        this.id = id;
+        this.name = name;
+        this.status = status;
+        this.producttype = producttype;
+        this.productuser = productUser;
+    }
+
+    public Hardware(int type, String name, String status, String producttype, String productUser) {
+        this.type = type;
+        this.name = name;
+        this.status = status;
+        this.producttype = producttype;
+        this.productuser = productUser;
+    }
+
     public int getType() {
         return type;
     }
@@ -54,6 +73,10 @@ public class Hardware {
 
     public Long getId() {
         return id;
+    }
+
+    public String getProductuser() {
+        return productuser;
     }
 
     public void setId(Long id) {
@@ -84,6 +107,10 @@ public class Hardware {
         this.producttype = producttype;
     }
 
+    public void setProductuser(String productuser) {
+        this.productuser = productuser;
+    }
+
     @Override
     public String toString() {
         return "Hardware{" +
@@ -92,6 +119,7 @@ public class Hardware {
                 ", name='" + name + '\'' +
                 ", status='" + status + '\'' +
                 ", producttype='" + producttype + '\'' +
+                ", productUser='" + productuser + '\'' +
                 '}';
     }
 }

@@ -88,4 +88,11 @@ public class HardwareService {
     }
 
 
+//tildel
+
+    public List<Hardware> findByProductuserEquals(String initial){
+        return hardwareRepo.findByProductuserEquals(initial);
+    }
+
+
 }

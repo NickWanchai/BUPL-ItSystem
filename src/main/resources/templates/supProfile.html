@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <script>
     function rowClicked(value) {
         location.href = "/caseProfile/" + value;
@@ -25,6 +25,8 @@
 <td th:text="${support.getFirstName()}"></td>
 </tbody>
 
+<!--Sager-->
+
 <table class="tables" align="center">
     <thead>
     <tr>
@@ -42,6 +44,30 @@
         <td th:text="${cases.getAssigned()}"></td>
         <td th:text="${cases.getCaseOwner()}"></td>
     </tr>
+    </tbody>
 </table>
+
+<!--Hardware-->
+
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Navn</th>
+        <th>Status</th>
+        <th>Type</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="hardwares: ${hardware}">
+        <td th:text="${hardwares.getName()}"></td>
+        <td th:text="${hardwares.getStatus()}"></td>
+        <td th:text="${hardwares.getProducttype()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
 </body>
 </html>

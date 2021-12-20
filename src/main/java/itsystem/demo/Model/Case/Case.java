@@ -3,6 +3,7 @@ package itsystem.demo.Model.Case;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 
+
 public class Case {
 
     @Id

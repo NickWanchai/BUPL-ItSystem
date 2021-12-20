@@ -14,6 +14,7 @@
         <th>Navn</th>
         <th>Status</th>
         <th>Produkt type</th>
+        <th>Anvendes af</th>
 
 
     </tr>
@@ -25,30 +26,35 @@
             <td th:text="${hardware.getName()}"></td>
             <td th:text="${hardware.getStatus()}"></td>
             <td th:text="${hardware.getProducttype()}"></td>
+            <td th:text="${hardware.getProductUser()}"></td>
         </tr>
 
         <tr th:each="pc: ${pc}">
             <td th:text="${pc.getName()}"></td>
             <td th:text="${pc.getStatus()}"></td>
             <td th:text="${pc.getProducttype()}"></td>
+            <td th:text="${pc.getProductUser()}"></td>
         </tr>
 
         <tr th:each="mobil: ${mobil}">
             <td th:text="${mobil.getName()}"></td>
             <td th:text="${mobil.getStatus()}"></td>
             <td th:text="${mobil.getProducttype()}"></td>
+            <td th:text="${mobil.getProductuser()}"></td>
         </tr>
 
         <tr th:each="tablet: ${tablet}">
             <td th:text="${tablet.getName()}"></td>
             <td th:text="${tablet.getStatus()}"></td>
             <td th:text="${tablet.getProducttype()}"></td>
+            <td th:text="${tablet.getProductuser()}"></td>
         </tr>
 
         <tr th:each="peripheral: ${peripheral}">
             <td th:text="${peripheral.getName()}"></td>
             <td th:text="${peripheral.getStatus()}"></td>
             <td th:text="${peripheral.getProducttype()}"></td>
+            <td th:text="${peripheral.getProductuser()}"></td>
         </tr>
 
     </tbody>

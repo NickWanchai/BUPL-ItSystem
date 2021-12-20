@@ -11,8 +11,8 @@ public class PC extends Hardware {
     }
 
 
-    public PC(int type, String name, String status, String producttype) {
-        super(1, name, status, "PC");
+    public PC(int type, String name, String status, String producttype, String productUser) {
+        super(1, name, status, "PC", productUser);
     }
 
 }

@@ -6,6 +6,7 @@ import itsystem.demo.Model.Employee.ITdep;
 import itsystem.demo.Model.Employee.Support;
 import itsystem.demo.Repository.Case.CaseService;
 import itsystem.demo.Repository.Employee.EmployeeService;
+import itsystem.demo.Repository.Hardware.HardwareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,8 @@ public class EmployeeController {
     private EmployeeService eService;
     @Autowired
     private CaseService caseService;
+    @Autowired
+    private HardwareService hardwareService;
 
 
     @GetMapping("/employees")
@@ -222,8 +225,14 @@ public class EmployeeController {
 
     @GetMapping("/supProfile/{id}")
     public String supProfile(@PathVariable("id")long id, Model model){
+
         Support support = eService.findSupById(id);
+
         model.addAttribute("cases", caseService.findCaseAssigned(support.getInitials()));
+        model.addAttribute("hardwares", hardwareService.findByProductuserEquals(support.getInitials()));
+
+        System.out.println(hardwareService.findByProductuserEquals("mr"));
+
         model.addAttribute("support", support);
         return "supProfile";
     }

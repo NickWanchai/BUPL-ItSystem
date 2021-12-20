@@ -51,16 +51,16 @@ public class HardwareController {
 
         switch (hardware.getType()){
             case 1:
-                hardware = new PC(hardware.getType(), hardware.getName(), hardware.getStatus(), hardware.getProducttype());
+                hardware = new PC(hardware.getType(), hardware.getName(), hardware.getStatus(), hardware.getProducttype(), hardware.getProductuser());
                 break;
             case 2:
-                hardware = new Mobil(hardware.getType(), hardware.getName(), hardware.getStatus(), hardware.getProducttype());
+                hardware = new Mobil(hardware.getType(), hardware.getName(), hardware.getStatus(), hardware.getProducttype(), hardware.getProductuser());
                 break;
             case 3:
-                hardware = new Tablet(hardware.getType(), hardware.getName(), hardware.getStatus(), hardware.getProducttype());
+                hardware = new Tablet(hardware.getType(), hardware.getName(), hardware.getStatus(), hardware.getProducttype(), hardware.getProductuser());
                 break;
             case 4:
-                hardware = new Peripheral(hardware.getType(), hardware.getName(), hardware.getStatus(), hardware.getProducttype());
+                hardware = new Peripheral(hardware.getType(), hardware.getName(), hardware.getStatus(), hardware.getProducttype(), hardware.getProductuser());
                 break;
             default:
                 hardware = new Hardware();
@@ -78,6 +78,7 @@ public class HardwareController {
 
         return "redirect:/hardware";
     }
+
 
 
 

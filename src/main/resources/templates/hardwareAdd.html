@@ -17,16 +17,20 @@
                 </select>
             </p>
 
-            <p>Name: <input type="text" th:field="*{name}"/></p>
+            <p>Navn: <input type="text" th:field="*{name}"/></p>
+
 
             <p>Status:
             <select th:field="*{status}">
-                <option value="volvo">I Brug</option>
-                <option value="saab">Kasseret</option>
-                <option value="mercedes">Solgt</option>
-                <option value="audi">på Lager</option>
+                <option value="I Brug">inUse</option>
+                <option value="Kasseret">discard</option>
+                <option value="Solgt">Sold</option>
+                <option value="På lager">inStore</option>
             </select>
             </p>
+
+            <p>Anvendes af: <input type="text" th:field="*{productuser}"/></p>
+
 
         </div>
 
