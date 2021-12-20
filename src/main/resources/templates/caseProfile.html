@@ -14,13 +14,13 @@
 
 <div th:replace="header">...</div>
 <h1 align="center">Sags beskrivelse</h1>
-<table class="tables" align="center">
-    <thead>
+<table class="table">
+    <thead class="thead-dark">
     <tr>
-        <th>Emne</th>
-        <th>Tildelt til</th>
-        <th>Startet af</th>
-        <th>Status</th>
+        <th scope="col">Emne</th>
+        <th scope="col">Tildelt til</th>
+        <th scope="col">Startet af</th>
+        <th scope="col">Status</th>
     </tr>
     </thead>
 
@@ -31,8 +31,8 @@
     <td th:text="${case.getStatus()}"></td>
     </tbody>
 </table>
-<table class="tables" align="center">
-    <thead>
+<table class="table">
+    <thead class="thead-dark">
     <tr>
         <th>Beskrivelse</th>
     </tr>
