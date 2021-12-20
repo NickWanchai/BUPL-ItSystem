@@ -1,17 +1,26 @@
 <!DOCTYPE html>
+<script>
+    function rowClicked(value) {
+        location.href = "/caseEdit/" + value;
+    }
+
+</script>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Sags beskrivelse</title>
 </head>
 <body>
+
+<div th:replace="header">...</div>
 <h1 align="center">Sags beskrivelse</h1>
-<table class="tables" align="center">
-    <thead>
+<table class="table">
+    <thead class="thead-dark">
     <tr>
-        <th>Emne</th>
-        <th>Tildelt til</th>
-        <th>Startet af</th>
+        <th scope="col">Emne</th>
+        <th scope="col">Tildelt til</th>
+        <th scope="col">Startet af</th>
+        <th scope="col">Status</th>
     </tr>
     </thead>
 
@@ -19,10 +28,11 @@
     <td th:text="${case.getSubject()}"></td>
     <td th:text="${case.getAssigned()}"></td>
     <td th:text="${case.getCaseOwner()}"></td>
+    <td th:text="${case.getStatus()}"></td>
     </tbody>
 </table>
-<table class="tables" align="center">
-    <thead>
+<table class="table">
+    <thead class="thead-dark">
     <tr>
         <th>Beskrivelse</th>
     </tr>
@@ -32,6 +42,9 @@
     <td th:text="${case.getDescription()}"></td>
     </tbody>
 </table>
+<button>
+    <a th:onclick="'javascript:rowClicked(\'' + ${case.getId()} + '\');'">Rediger sag</a>
+</button>
 
 </body>
 </html>
