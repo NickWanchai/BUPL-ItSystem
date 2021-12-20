@@ -1,23 +1,88 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<script>
+    function rowClicked(value) {
+        location.href = "/caseProfile/" + value;
+    }
+
+</script>
 <head>
     <meta charset="UTF-8">
     <title>Start</title>
 </head>
 <body>
+<h1>velkommen!</h1>
+
 <div class="container">
 
 
-<div th:replace="header">...</div>
+    <div th:replace="header">...</div>
 
     <div class="jumbotron">
         <h1>Dashboard</h1>
         <p> Her skal der være info om nye opdateringer, nye sager, statistik over sager osv.</p>
 
 
+<table class="tables" align="center">
+    <thead>
+    <h4 align="center">Hardware i brug</h4>
+    <tr>
+        <th>Produkt navn</th>
+        <th>Produkt status</th>
+        <th>Tildelt til</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="mobile: ${mobile}">
+        <td th:text="${mobile.getName()}"></td>
+        <td th:text="${mobile.getStatus()}"></td>
+        <td th:text="${mobile.getProductuser()}"></td>
+    </tr>
+    <tr th:each="tablet: ${tablet}">
+        <td th:text="${tablet.getName()}"></td>
+        <td th:text="${tablet.getStatus()}"></td>
+        <td th:text="${tablet.getProductuser()}"></td>
+    </tr>
+    <tr th:each="pc: ${pc}">
+        <td th:text="${pc.getName()}"></td>
+        <td th:text="${pc.getStatus()}"></td>
+        <td th:text="${pc.getProductuser()}"></td>
+    </tr>
+    <tr th:each="peri: ${peri}">
+        <td th:text="${peri.getName()}"></td>
+        <td th:text="${peri.getStatus()}"></td>
+        <td th:text="${peri.getProductuser()}"></td>
+    </tr>
+    </tbody>
 
 
-    </div>
-</div>
+    <table class="tables" align="center">
+        <thead>
+        <h4 align="center">Aktive sager</h4>
+        <tr>
+            <th>Sags emne</th>
+            <th>Startet af</th>
+            <th>Tildelt til</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="cases: ${cases}" style="cursor: pointer"
+            th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
+            <td th:text="${cases.getSubject()}"></td>
+            <td th:text="${cases.getAssigned()}"></td>
+            <td th:text="${cases.getCaseOwner()}"></td>
+            <td th:text="${cases.getStatus()}"></td>
+        </tr>
+    </tbody>
+
+
+
+    </table>
 </body>
+
+
+
 </html>

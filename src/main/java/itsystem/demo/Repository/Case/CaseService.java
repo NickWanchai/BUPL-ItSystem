@@ -28,4 +28,9 @@ public class CaseService {
         return caseRepo.findByAssignedEquals(initial);
     }
 
+    //Finder ud fra status
+    public List<Case> findCaseByStatus(String status){
+        return caseRepo.findByStatusEquals(status);
+    }
+
 }
