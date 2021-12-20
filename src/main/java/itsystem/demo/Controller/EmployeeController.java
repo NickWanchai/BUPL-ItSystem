@@ -4,6 +4,7 @@ import itsystem.demo.Model.Employee.Admin;
 import itsystem.demo.Model.Employee.Employee;
 import itsystem.demo.Model.Employee.ITdep;
 import itsystem.demo.Model.Employee.Support;
+import itsystem.demo.Repository.Case.CaseService;
 import itsystem.demo.Repository.Employee.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,8 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService eService;
+    @Autowired
+    private CaseService caseService;
 
 
     @GetMapping("/employees")
@@ -53,13 +56,13 @@ public class EmployeeController {
 
         switch (employee.getDepartment()){
             case 1:
-                employee = new Admin(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior());
+                employee = new Admin(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail());
                 break;
             case 2:
-                employee = new Support(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior());
+                employee = new Support(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail());
                 break;
             case 3:
-                employee = new ITdep(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior());
+                employee = new ITdep(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail());
                 break;
             default:
                 employee = new Employee();
@@ -113,7 +116,7 @@ public class EmployeeController {
 //        return editView;
 //    }
 
-    @GetMapping ("empEdit/{id}")
+    @GetMapping ("/empEdit/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model){
         Employee employee = eService.findEmpById(id);
 
@@ -133,7 +136,7 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @GetMapping ("supEdit/{id}")
+    @GetMapping ("/supEdit/{id}")
     public String showUpdateSupForm(@PathVariable("id") long id, Model model){
         Support support = eService.findSupById(id);
 
@@ -152,7 +155,7 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @GetMapping ("itEdit/{id}")
+    @GetMapping ("/itEdit/{id}")
     public String showUpdateITForm(@PathVariable("id") long id, Model model){
         ITdep iTdep = eService.findItById(id);
 
@@ -171,7 +174,7 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @GetMapping ("adminEdit/{id}")
+    @GetMapping ("/adminEdit/{id}")
     public String showUpdateAdminForm(@PathVariable("id") long id, Model model){
         Admin admin = eService.findAdminById(id);
 
@@ -189,7 +192,33 @@ public class EmployeeController {
         eService.saveEmp(admin);
         return "redirect:/employees";
     }
-    @GetMapping("supProfile/{id}")
+    @GetMapping("/empProfile/{id}")
+    public String empProfile(@PathVariable("id") long id, Model model){
+        Employee employee = eService.findEmpById(id);
+
+        model.addAttribute("employee", employee);
+        return "empProfile";
+    }
+
+    @GetMapping("/itProfile/{id}")
+    public String itProfile(@PathVariable("id") long id, String init, Model model){
+        ITdep iTdep = eService.findItById(id);
+        caseService.findCaseAssigned("nw");
+        model.addAttribute("itdep", iTdep);
+        return "itProfile";
+    }
+
+
+
+    @GetMapping("/adminProfile/{id}")
+    public String adminProfile(@PathVariable("id") long id, Model model){
+        Admin admin = eService.findAdminById(id);
+
+        model.addAttribute("admin", admin);
+        return "adminProfile";
+    }
+
+    @GetMapping("/supProfile/{id}")
     public String supProfile(@PathVariable("id")long id, Model model){
         Support support = eService.findSupById(id);
 

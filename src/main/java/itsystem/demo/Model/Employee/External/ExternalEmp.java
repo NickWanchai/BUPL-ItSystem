@@ -1,43 +1,33 @@
-package itsystem.demo.Model.Employee;
-
+package itsystem.demo.Model.Employee.External;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 
-public class Employee {
+public class ExternalEmp{
 
-    //Unikt id, så hver employee får deres egen plads i databasen
     @Id
-    @Column("employee_id")
+    @Column("external_id")
     private Long id;
-    //navn
+
     private String firstName;
     private String lastName;
     private String initials;
-    //tlf nummer
     private int phoneNumber;
-    //et int der indikerer afdelingen
     private int department;
-    //afdeling - IT-drift, support, admin
     private String departmentName;
-    //hvem er vedkomnes leder
     private String superior;
-    //adresse
     private String address;
-    //email
-    private String email;
-    //password
     private String password;
+    private String email;
 
-    public Employee() {
-    }
+    public ExternalEmp(){}
 
-    public Employee(int department, String departmentName){
+    public ExternalEmp(int department, String departmentName){
         this.department = department;
         this.departmentName = departmentName;
     }
 
-    public Employee(int department, String departmentName, Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
+    public ExternalEmp(int department, String departmentName, Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
         this.department = department;
         this.departmentName = departmentName;
         this.id = id;
@@ -51,7 +41,7 @@ public class Employee {
         this.password = password;
     }
 
-    public Employee(String firstName, String lastName, int phoneNumber, int department, String superior, String address) {
+    public ExternalEmp(String firstName, String lastName, int phoneNumber, int department, String superior, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -60,7 +50,7 @@ public class Employee {
         this.address = address;
     }
 
-    public Employee(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
+    public ExternalEmp(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
         this.department = department;
         this.departmentName = departmentName;
         this.firstName = firstName;
@@ -95,6 +85,14 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getInitials() {
+        return initials;
+    }
+
+    public void setInitials(String initials) {
+        this.initials = initials;
     }
 
     public int getPhoneNumber() {
@@ -137,12 +135,12 @@ public class Employee {
         this.address = address;
     }
 
-    public String getInitials() {
-        return initials;
+    public String getPassword() {
+        return password;
     }
 
-    public void setInitials(String initials) {
-        this.initials = initials;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -151,13 +149,5 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

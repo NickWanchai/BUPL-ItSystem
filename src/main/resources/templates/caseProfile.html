@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sags beskrivelse</title>
+</head>
+<body>
+<h1 align="center">Sags beskrivelse</h1>
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Emne</th>
+        <th>Tildelt til</th>
+        <th>Startet af</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <td th:text="${case.getSubject()}"></td>
+    <td th:text="${case.getAssigned()}"></td>
+    <td th:text="${case.getCaseOwner()}"></td>
+    </tbody>
+</table>
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Beskrivelse</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <td th:text="${case.getDescription()}"></td>
+    </tbody>
+</table>
+
+</body>
+</html>
