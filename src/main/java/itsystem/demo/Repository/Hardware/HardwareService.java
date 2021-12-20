@@ -94,5 +94,17 @@ public class HardwareService {
         return hardwareRepo.findByProductuserEquals(initial);
     }
 
+    public List<PC> findByPCuserEquals(String initial){
+        return pcRepo.findByProductuserEquals(initial);
+    }
+    public List<Mobil> findByMobiluserEquals(String initial){
+        return mobilRepo.findByProductuserEquals(initial);
+    }
+    public List<Peripheral> findByPeripheraluserEquals(String initial){
+        return peripheralRepo.findByProductuserEquals(initial);
+    }
+    public List<Tablet> findByTabletuserEquals(String initial){
+        return tabletRepo.findByProductuserEquals(initial);
+    }
 
 }

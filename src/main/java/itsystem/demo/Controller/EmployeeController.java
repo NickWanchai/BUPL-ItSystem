@@ -229,9 +229,17 @@ public class EmployeeController {
         Support support = eService.findSupById(id);
 
         model.addAttribute("cases", caseService.findCaseAssigned(support.getInitials()));
-        model.addAttribute("hardwares", hardwareService.findByProductuserEquals(support.getInitials()));
 
-        System.out.println(hardwareService.findByProductuserEquals("mr"));
+        model.addAttribute("mobil", hardwareService.findByMobiluserEquals(support.getInitials()));
+
+        model.addAttribute("pc", hardwareService.findByPCuserEquals(support.getInitials()));
+
+        model.addAttribute("peripheral", hardwareService.findByPeripheraluserEquals(support.getInitials()));
+
+        model.addAttribute("tablet", hardwareService.findByTabletuserEquals(support.getInitials()));
+
+
+        System.out.println(hardwareService.findByProductuserEquals("MR"));
 
         model.addAttribute("support", support);
         return "supProfile";
