@@ -11,76 +11,145 @@
     <title>Admin profil</title>
 </head>
 <body>
-<h1>Profil</h1>
+<div th:replace="header">...</div>
+<div class="container">
+    <h1>Profil</h1>
 
-<table class="tables" align="center"></table>
+    <table class="tables" >
+        <thead>
+        <tr>
+            <th>Navn</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="admin: ${admin}" ></tr>
+        <td th:text="${admin.getFirstName()} + ' ' + ${admin.getLastName()}"></td>
+        </tbody>
 
-<thead>
-<tr>
-    <th>Fornavn</th>
-</tr>
-<tbody>
-<td th:text="${admin.getFirstName()}"></td>
-</tbody>
+        <thead>
+        <tr>
+            <th>Leder</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="admin: ${admin}" ></tr>
+        <td th:text="${admin.getSuperior()}" ></td>
+        </tbody>
+
+        <thead>
+        <tr>
+            <th>E-mail</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="admin: ${admin}" ></tr>
+        <td th:text="${admin.getEmail()}" ></td>
+        </tbody>
+
+        <thead>
+        <tr>
+            <th>Initialer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="admin: ${admin}" ></tr>
+        <td th:text="${admin.getInitials()}" ></td>
+        </tbody>
+
+        <thead>
+        <tr>
+            <th>Telefonnummer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="admin: ${admin}" ></tr>
+        <td th:text="${admin.getPhoneNumber()}" ></td>
+        </tbody>
+
+        <thead>
+        <tr>
+            <th>Adresse</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="admin: ${admin}" ></tr>
+        <td th:text="${admin.getAddress()}" ></td>
+        </tbody>
+
+        <thead>
+        <tr>
+            <th>Afdeling</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="admin: ${admin}" ></tr>
+        <td th:text="${admin.getDepartmentName()}" ></td>
+        </tbody>
 
 
-<table class="tables" align="center">
-    <thead>
-    <tr>
-        <th>Emne</th>
-        <th>Tildelt til</th>
-        <th>Startet af</th>
+    </table>
 
-    </tr>
-    </thead>
 
-    <tbody>
-    <tr th:each="cases: ${cases}" style="cursor: pointer"
-        th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
-        <td th:text="${cases.getSubject()}"></td>
-        <td th:text="${cases.getAssigned()}"></td>
-        <td th:text="${cases.getCaseOwner()}"></td>
-    </tr>
-</table>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Emne</th>
+            <th scope="col">Tildelt til</th>
+            <th scope="col">Startet af</th>
 
-<!--Hardware-->
+        </tr>
+        </thead>
 
-<table class="tables" align="center">
-    <thead>
-    <tr>
-        <th>Navn</th>
-        <th>Status</th>
-        <th>Type</th>
+        <tbody>
+        <tr th:each="cases: ${cases}" style="cursor: pointer"
+            th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
+            <td th:text="${cases.getSubject()}"></td>
+            <td th:text="${cases.getAssigned()}"></td>
+            <td th:text="${cases.getCaseOwner()}"></td>
+        </tr>
+    </table>
 
-    </tr>
-    </thead>
+    <!--Hardware-->
 
-    <tbody>
-    <tr th:each="pc: ${pc}">
-        <td th:text="${pc.getName()}"></td>
-        <td th:text="${pc.getStatus()}"></td>
-        <td th:text="${pc.getProducttype()}"></td>
-    </tr>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Navn</th>
+            <th scope="col">Status</th>
+            <th scope="col">Type</th>
 
-    <tr th:each="mobil: ${mobil}">
-        <td th:text="${mobil.getName()}"></td>
-        <td th:text="${mobil.getStatus()}"></td>
-        <td th:text="${mobil.getProducttype()}"></td>
-    </tr>
+        </tr>
+        </thead>
 
-    <tr th:each="tablet: ${tablet}">
-        <td th:text="${tablet.getName()}"></td>
-        <td th:text="${tablet.getStatus()}"></td>
-        <td th:text="${tablet.getProducttype()}"></td>
-    </tr>
+        <tbody>
+        <tr th:each="pc: ${pc}">
+            <td th:text="${pc.getName()}"></td>
+            <td th:text="${pc.getStatus()}"></td>
+            <td th:text="${pc.getProducttype()}"></td>
+        </tr>
 
-    <tr th:each="peripheral: ${peripheral}">
-        <td th:text="${peripheral.getName()}"></td>
-        <td th:text="${peripheral.getStatus()}"></td>
-        <td th:text="${peripheral.getProducttype()}"></td>
-    </tr>
+        <tr th:each="mobil: ${mobil}">
+            <td th:text="${mobil.getName()}"></td>
+            <td th:text="${mobil.getStatus()}"></td>
+            <td th:text="${mobil.getProducttype()}"></td>
+        </tr>
 
-    </tbody>
-</table>
+        <tr th:each="tablet: ${tablet}">
+            <td th:text="${tablet.getName()}"></td>
+            <td th:text="${tablet.getStatus()}"></td>
+            <td th:text="${tablet.getProducttype()}"></td>
+        </tr>
+
+        <tr th:each="peripheral: ${peripheral}">
+            <td th:text="${peripheral.getName()}"></td>
+            <td th:text="${peripheral.getStatus()}"></td>
+            <td th:text="${peripheral.getProducttype()}"></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
 </body>
 </html>

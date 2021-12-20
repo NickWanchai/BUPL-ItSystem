@@ -5,6 +5,9 @@
     <title>Rediger Admin</title>
 </head>
 <body>
+<div class="container">
+
+    <div th:replace="header">...</div>
 
 <form action="#"
       th:action="@{/updateAdmin/{id}(id=${admin.id})}"

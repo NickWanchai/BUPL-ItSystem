@@ -5,17 +5,19 @@
     <title>Vis admins</title>
 </head>
 <body>
+<div th:replace="header">...</div>
+<div class="container">
 <h1>Admin liste</h1>
 
-<table class="tables" align="center">
-    <thead>
+<table class="table">
+        <thead class="thead-dark">
     <tr>
-        <th>Fornavn</th>
-        <th>Efternavn</th>
-        <th>Telefonnummer</th>
-        <th>Afdeling</th>
-        <th>Adresse</th>
-        <th>Leder</th>
+        <th scope="col">Fornavn</th>
+        <th scope="col">Efternavn</th>
+        <th scope="col">Telefonnummer</th>
+        <th scope="col">Afdeling</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Leder</th>
     </tr>
     </thead>
 

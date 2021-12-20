@@ -17,14 +17,39 @@
 <div class="container">
 
 
+        <br>
         <h1>Dashboard</h1>
-        <p> Her skal der være info om nye opdateringer, nye sager, statistik over sager osv.</p>
+        <p>Her er oversigten over alle vores aktive sager og hvilke hardware der er i brug</p>
+        <br>
 
 
 
     <table class="table">
-    <thead class="thead-dark">
+        <thead class="thead-dark">
+        <h4 align="center">Aktive sager</h4>
 
+        <tr>
+            <th scope="col">Sags emne</th>
+            <th scope="col">Startet af</th>
+            <th scope="col">Tildelt til</th>
+            <th scope="col">Status</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="cases: ${cases}" style="cursor: pointer"
+            th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
+            <td th:text="${cases.getSubject()}"></td>
+            <td th:text="${cases.getAssigned()}"></td>
+            <td th:text="${cases.getCaseOwner()}"></td>
+            <td th:text="${cases.getStatus()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table">
+    <thead class="thead-dark">
+    <br>
     <h4 align="center">Hardware i brug</h4>
 
     <tr>
@@ -58,30 +83,7 @@
     </tbody>
 
 
-        <table class="table">
-            <thead class="thead-dark">
 
-        <h4 align="center">Aktive sager</h4>
-
-        <tr>
-            <th scope="col">Sags emne</th>
-            <th scope="col">Startet af</th>
-            <th scope="col">Tildelt til</th>
-            <th scope="col">Status</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr th:each="cases: ${cases}" style="cursor: pointer"
-            th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
-            <td th:text="${cases.getSubject()}"></td>
-            <td th:text="${cases.getAssigned()}"></td>
-            <td th:text="${cases.getCaseOwner()}"></td>
-            <td th:text="${cases.getStatus()}"></td>
-        </tr>
-    </tbody>
-
-    </table>
 
 </div>
 </body>
