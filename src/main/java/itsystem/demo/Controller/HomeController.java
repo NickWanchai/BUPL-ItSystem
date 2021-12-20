@@ -14,10 +14,10 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute(hwService.findPhoneByStatus("I brug"));
-        model.addAttribute(hwService.findPcByStatus("I brug"));
-        model.addAttribute(hwService.findPeriByStatus("I brug"));
-        model.addAttribute(hwService.findTabByStatus("I brug"));
+        model.addAttribute("mobile", hwService.findPhoneByStatus("I brug"));
+        model.addAttribute("pc", hwService.findPcByStatus("I brug"));
+        model.addAttribute("peri",hwService.findPeriByStatus("I brug"));
+        model.addAttribute("tablet",hwService.findTabByStatus("I brug"));
         return "index";
     }
 

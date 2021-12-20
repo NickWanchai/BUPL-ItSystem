@@ -12,7 +12,42 @@
 <p> <a th:href="@{/empShow}"></a> </p>
 
 </body>
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Produkt navn</th>
+        <th>Produkt status</th>
+        <th>Tildelt til</th>
+    </tr>
+    </thead>
 
+    <tbody>
+    <tr th:each="mobile: ${mobile}">
+        <td th:text="${mobile.getName()}"></td>
+        <td th:text="${mobile.getStatus()}"></td>
+        <td th:text="${mobile.getProductuser()}"></td>
+    </tr>
+    <tr th:each="tablet: ${tablet}">
+        <td th:text="${tablet.getName()}"></td>
+        <td th:text="${tablet.getStatus()}"></td>
+        <td th:text="${tablet.getProductuser()}"></td>
+    </tr>
+    <tr th:each="pc: ${pc}">
+        <td th:text="${pc.getName()}"></td>
+        <td th:text="${pc.getStatus()}"></td>
+        <td th:text="${pc.getProductuser()}"></td>
+    </tr>
+    <tr th:each="peri: ${peri}">
+        <td th:text="${peri.getName()}"></td>
+        <td th:text="${peri.getStatus()}"></td>
+        <td th:text="${peri.getProductuser()}"></td>
+    </tr>
+
+
+    </tbody>
+
+
+</table>
 
 
 </html>
