@@ -25,58 +25,57 @@
 
 <div th:replace="header">...</div>
 
+    <h1>Medarbejder liste</h1>
 
-<h1>Medarbejder liste</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fornavn</th>
+            <th scope="col">Efternavn</th>
+            <th scope="col">Initialer</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Afdeling</th>
+        </tr>
+        </thead>
 
-<table class="tables" align="center">
-    <thead>
-    <tr>
-        <th>Fornavn</th>
-        <th>Efternavn</th>
-        <th>Initialer</th>
-        <th>E-mail</th>
-        <th>Afdeling</th>
-    </tr>
-    </thead>
+        <tbody>
+        <tr th:each="employee: ${employees}" style="cursor: pointer"
+            th:onclick="'javascript:empClicked(\'' + ${employee.getId()} + '\');'">
+            <td th:text="${employee.getFirstName()}"></td>
+            <td th:text="${employee.getLastName()}"></td>
+            <td th:text="${employee.getInitials()}"></td>
+            <td th:text="${employee.getEmail()}"></td>
+            <td th:text="${employee.getDepartmentName()}"></td>
+        </tr>
 
-    <tbody>
-    <tr th:each="employee: ${employees}" style="cursor: pointer"
-        th:onclick="'javascript:empClicked(\'' + ${employee.getId()} + '\');'">
-        <td th:text="${employee.getFirstName()}"></td>
-        <td th:text="${employee.getLastName()}"></td>
-        <td th:text="${employee.getInitials()}"></td>
-        <td th:text="${employee.getEmail()}"></td>
-        <td th:text="${employee.getDepartmentName()}"></td>
-    </tr>
+        <tr th:each="itdep: ${itdeps}" style="cursor: pointer"
+            th:onclick="'javascript:itClicked(\'' + ${itdep.getId()} + '\');'">
+            <td th:text="${itdep.getFirstName()}"></td>
+            <td th:text="${itdep.getLastName()}"></td>
+            <td th:text="${itdep.getInitials()}"></td>
+            <td th:text="${itdep.getEmail()}"></td>
+            <td th:text="${itdep.getDepartmentName()}"></td>
+        </tr>
+        <tr th:each="support: ${supports}" style="cursor: pointer"
+            th:onclick="'javascript:supClicked(\'' + ${support.getId()} + '\');'">
+            <td th:text="${support.getFirstName()}" ></td>
+            <td th:text="${support.getLastName()}"></td>
+            <td th:text="${support.getInitials()}"></td>
+            <td th:text="${support.getEmail()}"></td>
+            <td th:text="${support.getDepartmentName()}"></td>
+        </tr>
+        <tr th:each="admin: ${admins}" style="cursor: pointer"
+            th:onclick="'javascript:adminClicked(\'' + ${admin.getId()} + '\');'">
+            <td th:text="${admin.getFirstName()}"></td>
+            <td th:text="${admin.getLastName()}"></td>
+            <td th:text="${admin.getInitials()}"></td>
+            <td th:text="${admin.getEmail()}"></td>
+            <td th:text="${admin.getDepartmentName()}"></td>
+        </tr>
+        </tbody>
+    </table>
 
-    <tr th:each="itdep: ${itdeps}" style="cursor: pointer"
-        th:onclick="'javascript:itClicked(\'' + ${itdep.getId()} + '\');'">
-        <td th:text="${itdep.getFirstName()}"></td>
-        <td th:text="${itdep.getLastName()}"></td>
-        <td th:text="${itdep.getInitials()}"></td>
-        <td th:text="${itdep.getEmail()}"></td>
-        <td th:text="${itdep.getDepartmentName()}"></td>
-    </tr>
-    <tr th:each="support: ${supports}" style="cursor: pointer"
-        th:onclick="'javascript:supClicked(\'' + ${support.getId()} + '\');'">
-        <td th:text="${support.getFirstName()}" ></td>
-        <td th:text="${support.getLastName()}"></td>
-        <td th:text="${support.getInitials()}"></td>
-        <td th:text="${support.getEmail()}"></td>
-        <td th:text="${support.getDepartmentName()}"></td>
-    </tr>
-    <tr th:each="admin: ${admins}" style="cursor: pointer"
-        th:onclick="'javascript:adminClicked(\'' + ${admin.getId()} + '\');'">
-        <td th:text="${admin.getFirstName()}"></td>
-        <td th:text="${admin.getLastName()}"></td>
-        <td th:text="${admin.getInitials()}"></td>
-        <td th:text="${admin.getEmail()}"></td>
-        <td th:text="${admin.getDepartmentName()}"></td>
-    </tr>
-    </tbody>
-</table>
-
-    </div>
+</div>
 
 </body>
 </html>
