@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface PCRepo extends CrudRepository<PC, Long> {
     List<PC> findByProductuserEquals(String initial);
+    List<PC> findByStatusEquals(String status);
 }

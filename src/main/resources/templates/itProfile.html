@@ -43,5 +43,45 @@
     </tr>
 </table>
 
+<!--Hardware-->
+
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Navn</th>
+        <th>Status</th>
+        <th>Type</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="pc: ${pc}">
+        <td th:text="${pc.getName()}"></td>
+        <td th:text="${pc.getStatus()}"></td>
+        <td th:text="${pc.getProducttype()}"></td>
+    </tr>
+
+    <tr th:each="mobil: ${mobil}">
+        <td th:text="${mobil.getName()}"></td>
+        <td th:text="${mobil.getStatus()}"></td>
+        <td th:text="${mobil.getProducttype()}"></td>
+    </tr>
+
+    <tr th:each="tablet: ${tablet}">
+        <td th:text="${tablet.getName()}"></td>
+        <td th:text="${tablet.getStatus()}"></td>
+        <td th:text="${tablet.getProducttype()}"></td>
+    </tr>
+
+    <tr th:each="peripheral: ${peripheral}">
+        <td th:text="${peripheral.getName()}"></td>
+        <td th:text="${peripheral.getStatus()}"></td>
+        <td th:text="${peripheral.getProducttype()}"></td>
+    </tr>
+
+    </tbody>
+</table>
+
 </body>
 </html>
