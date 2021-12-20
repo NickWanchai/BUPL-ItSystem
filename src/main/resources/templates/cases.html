@@ -25,6 +25,7 @@
             <th>Emne</th>
             <th>Tildelt til</th>
             <th>Startet af</th>
+            <th>Status</th>
 
         </tr>
         </thead>
@@ -35,6 +36,7 @@
             <td th:text="${cases.getSubject()}"></td>
             <td th:text="${cases.getAssigned()}"></td>
             <td th:text="${cases.getCaseOwner()}"></td>
+            <td th:text="${cases.getStatus()}"></td>
         </tr>
     </table>
 

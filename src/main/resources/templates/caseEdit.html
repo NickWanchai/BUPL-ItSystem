@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rediger case</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/updateCase/{id}(id=${case.id})}"
+      th:object="${case}"
+      method="post">
+
+
+
+    <p>Sags emne: <input type="text" th:field="*{subject}"></p>
+    <p>Tildelt til: <input type="text" th:field="*{assigned}"></p>
+    <p>Startet af: <input type="text" th:field="*{caseOwner}"></p>
+    <p>Beskrivelse: <input type="text" th:field="*{description}"></p>
+    <p>Status: <select th:field="*{status}">
+        <option value="Aktiv">Aktiv</option>
+        <option value="Afsluttet">Afsluttet</option>
+    </select>
+    </p>
+
+    <input type="submit" value="Opdater" class="btn add" />
+
+
+</form>
+</body>
+</html>

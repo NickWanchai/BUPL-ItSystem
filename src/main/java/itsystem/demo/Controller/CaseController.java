@@ -53,13 +53,7 @@ public class CaseController {
     public String editCases(Model model){
         model.addAttribute("cases", caseService.findAllCases());
 
-        return "casesEdit";
-    }
-
-    @GetMapping("/caseDelete/{id}")
-    public String deleteCase(@PathVariable("id") Long id){
-        caseService.deleteCase(id);
-        return "redirect:/casesEdit";
+        return "caseEdit";
     }
 
     @GetMapping("/caseEdit/{id}")
@@ -77,6 +71,12 @@ public class CaseController {
             return "caseEdit";
         }
         caseService.saveCase(cases);
+        return "redirect:/caseProfile/{id}";
+    }
+
+    @GetMapping("/caseDelete/{id}")
+    public String deleteCase(@PathVariable("id") Long id){
+        caseService.deleteCase(id);
         return "redirect:/casesEdit";
     }
 
