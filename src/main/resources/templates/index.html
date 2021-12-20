@@ -5,14 +5,19 @@
     <title>Start</title>
 </head>
 <body>
-<h1>velkommen!</h1>
+<div class="container">
 
-<p>Klik <a th:href="@{/hardware}">her</a> for at komme videre til hw</p>
 
-<p> <a th:href="@{/empShow}"></a> </p>
+<div th:replace="header">...</div>
 
+    <div class="jumbotron">
+        <h1>Dashboard</h1>
+        <p> Her skal der være info om nye opdateringer, nye sager, statistik over sager osv.</p>
+
+
+
+
+    </div>
+</div>
 </body>
-
-
-
 </html>

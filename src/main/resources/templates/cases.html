@@ -13,23 +13,31 @@
 
 </head>
 <body>
-<table class="tables" align="center">
-    <thead>
-    <tr>
-        <th>Emne</th>
-        <th>Tildelt til</th>
-        <th>Startet af</th>
 
-    </tr>
-    </thead>
+<div class="container">
 
-    <tbody>
-    <tr th:each="cases: ${cases}" style="cursor: pointer"
-        th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
-        <td th:text="${cases.getSubject()}"></td>
-        <td th:text="${cases.getAssigned()}"></td>
-        <td th:text="${cases.getCaseOwner()}"></td>
-    </tr>
-</table>
+    <div th:replace="header">...</div>
+
+
+    <table class="tables" align="center">
+        <thead>
+        <tr>
+            <th>Emne</th>
+            <th>Tildelt til</th>
+            <th>Startet af</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="cases: ${cases}" style="cursor: pointer"
+            th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
+            <td th:text="${cases.getSubject()}"></td>
+            <td th:text="${cases.getAssigned()}"></td>
+            <td th:text="${cases.getCaseOwner()}"></td>
+        </tr>
+    </table>
+
+</div>
 </body>
 </html>
