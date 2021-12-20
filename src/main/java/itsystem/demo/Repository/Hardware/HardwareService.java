@@ -42,6 +42,19 @@ public class HardwareService {
         return (List<Peripheral>) peripheralRepo.findAll();
     }
 
+    public List<PC> findPcByStatus(String status){
+        return pcRepo.findByStatusEquals(status);
+    }
+    public List<Mobil> findPhoneByStatus(String status){
+        return mobilRepo.findByStatusEquals(status);
+    }
+    public List<Tablet> findTabByStatus(String status){
+        return tabletRepo.findByStatusEquals(status);
+    }
+    public List<Peripheral> findPeriByStatus(String status){
+        return peripheralRepo.findByStatusEquals(status);
+    }
+
 //Find på id
     public Hardware findHardwareById(Long id){
         return hardwareRepo.findById(id).get();

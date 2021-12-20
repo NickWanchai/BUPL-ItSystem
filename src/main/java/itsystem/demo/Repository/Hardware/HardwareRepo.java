@@ -10,5 +10,6 @@ import java.util.List;
 public interface HardwareRepo extends CrudRepository<Hardware, Long> {
 
     List<Hardware> findByProductuserEquals(String initial);
+    List<Hardware> findByStatusEquals(String status);
 
 }

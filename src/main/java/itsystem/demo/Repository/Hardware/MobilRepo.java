@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface MobilRepo extends CrudRepository<Mobil, Long> {
     List<Mobil> findByProductuserEquals(String initial);
+    List<Mobil> findByStatusEquals(String status);
 
 }

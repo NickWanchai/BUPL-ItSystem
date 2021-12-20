@@ -13,17 +13,81 @@
 <body>
 <h1>Profil</h1>
 
-<table class="tables" align="center"></table>
+<table class="tables" >
+    <thead>
+    <tr>
+        <th>Navn</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="support: ${support}" ></tr>
+    <td th:text="${support.getFirstName()} + ' ' + ${support.getLastName()}" align="center"></td>
+    </tbody>
 
-<thead>
-<tr>
-    <th>Fornavn</th>
-</tr>
-</thead>
+    <thead>
+    <tr>
+        <th>Leder</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="support: ${support}" ></tr>
+    <td th:text="${support.getSuperior()}" align="center"></td>
+    </tbody>
 
-<tbody>
-<td th:text="${support.getFirstName()}"></td>
-</tbody>
+    <thead>
+    <tr>
+        <th>E-mail</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="support: ${support}" ></tr>
+    <td th:text="${support.getEmail()}" align="center"></td>
+    </tbody>
+
+    <thead>
+    <tr>
+        <th>Initialer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="support: ${support}" ></tr>
+    <td th:text="${support.getInitials()}" align="center"></td>
+    </tbody>
+
+    <thead>
+    <tr>
+        <th>Telefonnummer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="support: ${support}" ></tr>
+    <td th:text="${support.getPhoneNumber()}" align="center"></td>
+    </tbody>
+
+    <thead>
+    <tr>
+        <th>Adresse</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="support: ${support}" ></tr>
+    <td th:text="${support.getAddress()}" align="center"></td>
+    </tbody>
+
+    <thead>
+    <tr>
+        <th>Afdeling</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="support: ${support}" ></tr>
+    <td th:text="${support.getDepartmentName()}" align="center"></td>
+    </tbody>
+
+
+</table>
+
+
 
 <!--Sager-->
 

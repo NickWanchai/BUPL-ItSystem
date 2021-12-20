@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface TabletRepo extends CrudRepository <Tablet, Long>{
     List<Tablet> findByProductuserEquals(String initial);
+    List<Tablet> findByStatusEquals(String status);
 }

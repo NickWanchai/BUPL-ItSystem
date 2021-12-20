@@ -198,7 +198,6 @@ public class EmployeeController {
     @GetMapping("/empProfile/{id}")
     public String empProfile(@PathVariable("id") long id, Model model){
         Employee employee = eService.findEmpById(id);
-
         model.addAttribute("employee", employee);
         return "empProfile";
     }
@@ -208,7 +207,15 @@ public class EmployeeController {
     @GetMapping("/itProfile/{id}")
     public String itProfile(@PathVariable("id") long id, String init, Model model){
         ITdep iTdep = eService.findItById(id);
+
+        //Henter case med tildelt initial og gør brug af det i html med Model
         model.addAttribute("cases", caseService.findCaseAssigned(iTdep.getInitials()));
+
+        //Henter hardware med tildelt initial og gør brug af det i html med Model
+        model.addAttribute("mobil", hardwareService.findByMobiluserEquals(iTdep.getInitials()));
+        model.addAttribute("pc", hardwareService.findByPCuserEquals(iTdep.getInitials()));
+        model.addAttribute("peripheral", hardwareService.findByPeripheraluserEquals(iTdep.getInitials()));
+        model.addAttribute("tablet", hardwareService.findByTabletuserEquals(iTdep.getInitials()));
         model.addAttribute("itdep", iTdep);
         return "itProfile";
     }
@@ -218,7 +225,16 @@ public class EmployeeController {
     @GetMapping("/adminProfile/{id}")
     public String adminProfile(@PathVariable("id") long id, Model model){
         Admin admin = eService.findAdminById(id);
+
+        //Henter case med tildelt initial og gør brug af det i html med Model
         model.addAttribute("cases", caseService.findCaseAssigned(admin.getInitials()));
+
+        //Henter hardware med tildelt initial og gør brug af det i html med Model
+        model.addAttribute("mobil", hardwareService.findByMobiluserEquals(admin.getInitials()));
+        model.addAttribute("pc", hardwareService.findByPCuserEquals(admin.getInitials()));
+        model.addAttribute("peripheral", hardwareService.findByPeripheraluserEquals(admin.getInitials()));
+        model.addAttribute("tablet", hardwareService.findByTabletuserEquals(admin.getInitials()));
+
         model.addAttribute("admin", admin);
         return "adminProfile";
     }
@@ -228,18 +244,14 @@ public class EmployeeController {
 
         Support support = eService.findSupById(id);
 
+        //Henter case med tildelt initial og gør brug af det i html med Model
         model.addAttribute("cases", caseService.findCaseAssigned(support.getInitials()));
 
+        //Henter hardware med tildelt initial og gør brug af det i html med Model
         model.addAttribute("mobil", hardwareService.findByMobiluserEquals(support.getInitials()));
-
         model.addAttribute("pc", hardwareService.findByPCuserEquals(support.getInitials()));
-
         model.addAttribute("peripheral", hardwareService.findByPeripheraluserEquals(support.getInitials()));
-
         model.addAttribute("tablet", hardwareService.findByTabletuserEquals(support.getInitials()));
-
-
-        System.out.println(hardwareService.findByProductuserEquals("MR"));
 
         model.addAttribute("support", support);
         return "supProfile";

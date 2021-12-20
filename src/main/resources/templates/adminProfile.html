@@ -1,10 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script>
+    function rowClicked(value) {
+        location.href = "/caseProfile/" + value;
+    }
+
+</script>
 <head>
     <meta charset="UTF-8">
     <title>Admin profil</title>
 </head>
 <body>
+<h1>Profil</h1>
 
+<table class="tables" align="center"></table>
+
+<thead>
+<tr>
+    <th>Fornavn</th>
+</tr>
+<tbody>
+<td th:text="${admin.getFirstName()}"></td>
+</tbody>
+
+
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Emne</th>
+        <th>Tildelt til</th>
+        <th>Startet af</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="cases: ${cases}" style="cursor: pointer"
+        th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
+        <td th:text="${cases.getSubject()}"></td>
+        <td th:text="${cases.getAssigned()}"></td>
+        <td th:text="${cases.getCaseOwner()}"></td>
+    </tr>
+</table>
+
+<!--Hardware-->
+
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Navn</th>
+        <th>Status</th>
+        <th>Type</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="pc: ${pc}">
+        <td th:text="${pc.getName()}"></td>
+        <td th:text="${pc.getStatus()}"></td>
+        <td th:text="${pc.getProducttype()}"></td>
+    </tr>
+
+    <tr th:each="mobil: ${mobil}">
+        <td th:text="${mobil.getName()}"></td>
+        <td th:text="${mobil.getStatus()}"></td>
+        <td th:text="${mobil.getProducttype()}"></td>
+    </tr>
+
+    <tr th:each="tablet: ${tablet}">
+        <td th:text="${tablet.getName()}"></td>
+        <td th:text="${tablet.getStatus()}"></td>
+        <td th:text="${tablet.getProducttype()}"></td>
+    </tr>
+
+    <tr th:each="peripheral: ${peripheral}">
+        <td th:text="${peripheral.getName()}"></td>
+        <td th:text="${peripheral.getStatus()}"></td>
+        <td th:text="${peripheral.getProducttype()}"></td>
+    </tr>
+
+    </tbody>
+</table>
 </body>
 </html>

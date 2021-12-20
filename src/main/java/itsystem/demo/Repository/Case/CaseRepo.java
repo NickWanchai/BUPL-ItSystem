@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface CaseRepo extends CrudRepository<Case, Long>{
 
+    //Finder hvilken person casen er assigned til
     List<Case> findByAssignedEquals(String initial);
 }

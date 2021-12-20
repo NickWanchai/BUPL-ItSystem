@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface PeripheralRepo extends CrudRepository<Peripheral, Long> {
     List<Peripheral> findByProductuserEquals(String initial);
+    List<Peripheral> findByStatusEquals(String status);
 }
