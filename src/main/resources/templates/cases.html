@@ -14,17 +14,17 @@
 </head>
 <body>
 
+<div th:replace="header">...</div>
 <div class="container">
 
-    <div th:replace="header">...</div>
+    <h1>Sager</h1>
 
-
-    <table class="tables" align="center">
-        <thead>
+    <table class="table">
+        <thead class="thead-dark">
         <tr>
-            <th>Emne</th>
-            <th>Tildelt til</th>
-            <th>Startet af</th>
+            <th scope="col">Emne</th>
+            <th scope="col">Tildelt til</th>
+            <th scope="col">Startet af</th>
 
         </tr>
         </thead>

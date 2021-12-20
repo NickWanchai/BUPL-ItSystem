@@ -10,26 +10,27 @@
     <meta charset="UTF-8">
     <title>Start</title>
 </head>
-<body>
-<h1>velkommen!</h1>
 
+<body>
+
+<div th:replace="header">...</div>
 <div class="container">
 
 
-    <div th:replace="header">...</div>
-
-    <div class="jumbotron">
         <h1>Dashboard</h1>
         <p> Her skal der være info om nye opdateringer, nye sager, statistik over sager osv.</p>
 
 
-<table class="tables" align="center">
-    <thead>
+
+    <table class="table">
+    <thead class="thead-dark">
+
     <h4 align="center">Hardware i brug</h4>
+
     <tr>
-        <th>Produkt navn</th>
-        <th>Produkt status</th>
-        <th>Tildelt til</th>
+        <th scope="col">Produkt navn</th>
+        <th scope="col">Produkt status</th>
+        <th scope="col">Tildelt til</th>
     </tr>
     </thead>
 
@@ -57,14 +58,16 @@
     </tbody>
 
 
-    <table class="tables" align="center">
-        <thead>
+        <table class="table">
+            <thead class="thead-dark">
+
         <h4 align="center">Aktive sager</h4>
+
         <tr>
-            <th>Sags emne</th>
-            <th>Startet af</th>
-            <th>Tildelt til</th>
-            <th>Status</th>
+            <th scope="col">Sags emne</th>
+            <th scope="col">Startet af</th>
+            <th scope="col">Tildelt til</th>
+            <th scope="col">Status</th>
         </tr>
         </thead>
 
@@ -78,11 +81,8 @@
         </tr>
     </tbody>
 
-
-
     </table>
+
+
 </body>
-
-
-
 </html>
