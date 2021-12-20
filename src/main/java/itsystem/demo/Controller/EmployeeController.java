@@ -200,10 +200,12 @@ public class EmployeeController {
         return "empProfile";
     }
 
+
+    //Lav knap man trykker på (der allerede har value for employee.getInit()) som man trykker på og finder alle cases med den value
     @GetMapping("/itProfile/{id}")
     public String itProfile(@PathVariable("id") long id, String init, Model model){
         ITdep iTdep = eService.findItById(id);
-        caseService.findCaseAssigned("nw");
+        model.addAttribute("cases", caseService.findCaseAssigned(iTdep.getInitials()));
         model.addAttribute("itdep", iTdep);
         return "itProfile";
     }
@@ -213,7 +215,7 @@ public class EmployeeController {
     @GetMapping("/adminProfile/{id}")
     public String adminProfile(@PathVariable("id") long id, Model model){
         Admin admin = eService.findAdminById(id);
-
+        model.addAttribute("cases", caseService.findCaseAssigned(admin.getInitials()));
         model.addAttribute("admin", admin);
         return "adminProfile";
     }
@@ -221,7 +223,7 @@ public class EmployeeController {
     @GetMapping("/supProfile/{id}")
     public String supProfile(@PathVariable("id")long id, Model model){
         Support support = eService.findSupById(id);
-
+        model.addAttribute("cases", caseService.findCaseAssigned(support.getInitials()));
         model.addAttribute("support", support);
         return "supProfile";
     }
