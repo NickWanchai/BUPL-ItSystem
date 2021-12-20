@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<div class="container">
+
 <div th:replace="header">...</div>
 <h1 align="center">Sags beskrivelse</h1>
 <table class="table">
@@ -45,6 +47,6 @@
 <button>
     <a th:onclick="'javascript:rowClicked(\'' + ${case.getId()} + '\');'">Rediger sag</a>
 </button>
-
+</div>
 </body>
 </html>
