@@ -9,6 +9,7 @@
 
     <div th:replace="header">...</div>
 
+    <h4>Rediger admin</h4>
 <form action="#"
       th:action="@{/updateAdmin/{id}(id=${admin.id})}"
       th:object="${admin}"
@@ -18,6 +19,8 @@
 
     <p>Fornavn: <input type="text" th:field="*{firstName}"></p>
     <p>Efternavn: <input type="text" th:field="*{lastName}"></p>
+    <p>Initialer: <input type="text" th:field="*{initials}"></p>
+    <p>Email: <input type="text" th:field="*{email}"></p>
     <p>Telefonnummer: <input type="number" th:field="*{phoneNumber}"></p>
     <p>Adresse: <input type="text" th:field="*{address}"></p>
     <p>Leder: <input type="text" th:field="*{superior}"></p>
