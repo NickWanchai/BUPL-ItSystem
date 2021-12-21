@@ -3,6 +3,9 @@
     function rowClicked(value) {
         location.href = "/caseProfile/" + value;
     }
+    function addCaseClicked(){
+        location.href = "/casesAdd";
+    }
 
 </script>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -38,6 +41,9 @@
         </tr>
     </table>
 
+    <button>
+        <a th:onclick="'javascript:addCaseClicked();'">Tilføj sag</a>
+    </button>
 </div>
 </body>
 </html>

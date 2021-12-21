@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<script>
+    function addHardwareClicked(){
+        location.href = "/hardwareAdd";
+    }
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,6 +34,7 @@
                 <td th:text="${hardware.getStatus()}"></td>
                 <td th:text="${hardware.getProducttype()}"></td>
                 <td th:text="${hardware.getProductuser()}"></td>
+
             </tr>
 
             <tr th:each="pc: ${pc}">
@@ -36,6 +42,9 @@
                 <td th:text="${pc.getStatus()}"></td>
                 <td th:text="${pc.getProducttype()}"></td>
                 <td th:text="${pc.getProductuser()}"></td>
+                <td>
+                    <a th:href="@{'/pcDelete/' + ${pc.id}}">Slet</a>
+                </td>
             </tr>
 
             <tr th:each="mobil: ${mobil}">
@@ -43,6 +52,9 @@
                 <td th:text="${mobil.getStatus()}"></td>
                 <td th:text="${mobil.getProducttype()}"></td>
                 <td th:text="${mobil.getProductuser()}"></td>
+                <td>
+                    <a th:href="@{'/mobileDelete/' + ${mobil.id}}">Slet</a>
+                </td>
             </tr>
 
             <tr th:each="tablet: ${tablet}">
@@ -50,6 +62,9 @@
                 <td th:text="${tablet.getStatus()}"></td>
                 <td th:text="${tablet.getProducttype()}"></td>
                 <td th:text="${tablet.getProductuser()}"></td>
+                <td>
+                    <a th:href="@{'/tabletDelete/' + ${tablet.id}}">Slet</a>
+                </td>
             </tr>
 
             <tr th:each="peripheral: ${peripheral}">
@@ -57,16 +72,16 @@
                 <td th:text="${peripheral.getStatus()}"></td>
                 <td th:text="${peripheral.getProducttype()}"></td>
                 <td th:text="${peripheral.getProductuser()}"></td>
+                <td>
+                    <a th:href="@{'/periDelete/' + ${peripheral.id}}">Slet</a>
+                </td>
             </tr>
-
-
-
-
-
         </tbody>
-
     </table>
 
+    <button>
+        <a th:onclick="'javascript:addHardwareClicked();'">Tilføj hardware</a>
+    </button>
 
 
 </div>

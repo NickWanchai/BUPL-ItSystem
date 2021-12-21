@@ -79,6 +79,30 @@ public class HardwareController {
         return "redirect:/hardware";
     }
 
+    @GetMapping("/pcDelete/{id}")
+    public String deletePc(@PathVariable("id") Long id){
+        hardwareService.deletePC(id);
+        return "redirect:/hardware";
+    }
+
+    @GetMapping("/mobileDelete/{id}")
+    public String deleteMobile(@PathVariable("id") Long id){
+        hardwareService.deleteMobil(id);
+        return "redirect:/hardware";
+    }
+
+    @GetMapping("/periDelete/{id}")
+    public String deletePeri(@PathVariable("id") Long id){
+        hardwareService.deletePeripheral(id);
+        return "redirect:/hardware";
+    }
+
+    @GetMapping("/tabletDelete/{id}")
+    public String deleteTablet(@PathVariable("id") Long id){
+        hardwareService.deleteTablet(id);
+        return "redirect:/hardware";
+    }
+
 
 
 

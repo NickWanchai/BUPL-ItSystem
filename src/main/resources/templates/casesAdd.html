@@ -5,10 +5,11 @@
     <title>Tilføj sag</title>
 </head>
 
+<div th:replace="header">...</div>
 <div class="container">
 
-<h1>Opret sag</h1>
-
+<h4>Opret sag</h4>
+    <br>
 <form action="#" th:action="@{/casesAdd}" th:object="${case}" method="post">
 
     <p>Emne: <input type="text" th:field="*{subject}"></p>
