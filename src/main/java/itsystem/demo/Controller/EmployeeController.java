@@ -198,6 +198,13 @@ public class EmployeeController {
     @GetMapping("/empProfile/{id}")
     public String empProfile(@PathVariable("id") long id, Model model){
         Employee employee = eService.findEmpById(id);
+        model.addAttribute("cases", caseService.findCaseAssigned(employee.getInitials()));
+
+        //Henter hardware med tildelt initial og gør brug af det i html med Model
+        model.addAttribute("mobil", hardwareService.findByMobiluserEquals(employee.getInitials()));
+        model.addAttribute("pc", hardwareService.findByPCuserEquals(employee.getInitials()));
+        model.addAttribute("peripheral", hardwareService.findByPeripheraluserEquals(employee.getInitials()));
+        model.addAttribute("tablet", hardwareService.findByTabletuserEquals(employee.getInitials()));
         model.addAttribute("employee", employee);
         return "empProfile";
     }

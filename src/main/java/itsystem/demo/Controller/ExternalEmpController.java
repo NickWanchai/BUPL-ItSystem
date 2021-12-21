@@ -1,6 +1,5 @@
 package itsystem.demo.Controller;
 
-import itsystem.demo.Model.Employee.Employee;
 import itsystem.demo.Model.Employee.External.*;
 import itsystem.demo.Repository.Employee.External.ExternalService;
 import org.springframework.beans.factory.annotation.Autowired;
