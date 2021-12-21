@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Tilføj sag</title>
 </head>
-<h1>Tilføj sag</h1>
+
+<div class="container">
+
+<h1>Opret sag</h1>
 
 <form action="#" th:action="@{/casesAdd}" th:object="${case}" method="post">
 
@@ -19,12 +22,12 @@
         </select>
     </p>
 
-    </div>
 
     <input type="submit" value="Tilføj" class="btn add"/>
 
 </form>
 
+</div>
 
 </body>
 </html>
