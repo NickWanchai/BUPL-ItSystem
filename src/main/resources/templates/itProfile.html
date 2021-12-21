@@ -4,13 +4,6 @@
     function rowClicked(value) {
         location.href = "/caseProfile/" + value;
     }
-        function deleteClicked(value) {
-        location.href = "/deleteIT/" + value;
-    }
-        function editClicked(value) {
-        location.href = "/itEdit/" + value;
-    }
-
 
 </script>
 <head>
@@ -155,12 +148,7 @@
 
     </tbody>
 </table>
-    <button>
-        <a th:onclick="'javascript:editClicked(\'' + ${itdep.getId()} + '\');'">Rediger medarbejder</a>
-    </button>
-    <button>
-        <a th:onclick="'javascript:deleteClicked(\'' + ${itdep.getId()} + '\');'">Slet medarbejder</a>
-    </button>
-</div>
+
+    </div>
 </body>
 </html>

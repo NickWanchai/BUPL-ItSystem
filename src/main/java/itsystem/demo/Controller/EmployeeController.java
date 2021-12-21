@@ -82,8 +82,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employeeEdit")
-    public String
-    Employee(Model model){
+    public String deleteEmployee(Model model){
         model.addAttribute("employees", eService.findAllemp());
         model.addAttribute("supports", eService.findAllsup());
         model.addAttribute("admins", eService.findAlladmin());
@@ -94,22 +93,22 @@ public class EmployeeController {
     @GetMapping("/deleteEmp/{id}")
     public String deleteEmp(@PathVariable(name = "id") Long id){
         eService.deleteEmp(id);
-        return "redirect:/employees";
+        return "redirect:/employeeEdit";
     }
     @GetMapping("/deleteSup/{id}")
     public String deleteSupport(@PathVariable(name = "id") Long id){
         eService.deleteSupport(id);
-        return "redirect:/employees";
+        return "redirect:/employeeEdit";
     }
     @GetMapping("/deleteAdmin/{id}")
     public String deleteAdmin(@PathVariable(name = "id") Long id){
         eService.deleteAdmin(id);
-        return "redirect:/employees";
+        return "redirect:/employeeEdit";
     }
     @GetMapping("/deleteIT/{id}")
     public String deleteIT(@PathVariable(name = "id") Long id){
         eService.deleteIT(id);
-        return "redirect:/employees";
+        return "redirect:/employeeEdit";
     }
 
 //    @GetMapping("/editEmp/{id}")

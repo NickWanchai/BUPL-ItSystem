@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <script>
-    function deleteClicked(value) {
-        location.href = "/deleteSup/" + value;
-    }
-    function editClicked(value) {
-        location.href = "/supEdit/" + value;
-    }
     function rowClicked(value) {
         location.href = "/caseProfile/" + value;
     }
+
 </script>
 <head>
     <meta charset="UTF-8">
@@ -153,12 +148,6 @@
 
         </tbody>
     </table>
-    <button>
-        <a th:onclick="'javascript:editClicked(\'' + ${support.getId()} + '\');'">Rediger medarbejder</a>
-    </button>
-    <button>
-        <a th:onclick="'javascript:deleteClicked(\'' + ${support.getId()} + '\');'">Slet medarbejder</a>
-    </button>
 
 </div>
 
