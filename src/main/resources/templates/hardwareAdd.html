@@ -6,6 +6,13 @@
 </head>
 <body>
 
+<div th:replace="header">...</div>
+
+<div class="container">
+
+<h1>Opret hardware</h1>
+
+
     <form action="#" th:action="@{/hardwareAdd}"  th:object="${hardware}" method="post">
         <div>
 
@@ -22,10 +29,10 @@
 
             <p>Status:
             <select th:field="*{status}">
-                <option value="I Brug">inUse</option>
-                <option value="Kasseret">discard</option>
-                <option value="Solgt">Sold</option>
-                <option value="På lager">inStore</option>
+                <option value="I Brug">I Brug</option>
+                <option value="Kasseret">Kasseret</option>
+                <option value="Solgt">Solgt</option>
+                <option value="På lager">På lager</option>
             </select>
             </p>
 
@@ -38,7 +45,7 @@
 
     </form>
 
-
+</div>
 </body>
 
 </html>

@@ -14,77 +14,74 @@
 <body>
 
 <div th:replace="header">...</div>
-<div class="container">
+    <div class="container">
 
 
-        <br>
-        <h1>Dashboard</h1>
-        <p>Her er oversigten over alle vores aktive sager og hvilke hardware der er i brug</p>
-        <br>
+            <br>
+            <h1>Dashboard</h1>
+            <p>Her er oversigten over alle vores aktive sager og hvilke hardware der er i brug</p>
+            <br>
 
 
 
-    <table class="table">
+        <table class="table table-danger table-sm">
+            <thead class="thead-dark">
+            <h4 align="center">Aktive sager</h4>
+
+            <tr>
+                <th scope="col">Sags emne</th>
+                <th scope="col">Startet af</th>
+                <th scope="col">Tildelt til</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="cases: ${cases}" style="cursor: pointer"
+                th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
+                <td th:text="${cases.getSubject()}"></td>
+                <td th:text="${cases.getAssigned()}"></td>
+                <td th:text="${cases.getCaseOwner()}"></td>
+                <td th:text="${cases.getStatus()}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-danger table-sm">
         <thead class="thead-dark">
-        <h4 align="center">Aktive sager</h4>
+        <br>
+        <h4 align="center">Hardware i brug</h4>
 
         <tr>
-            <th scope="col">Sags emne</th>
-            <th scope="col">Startet af</th>
+            <th scope="col">Produkt navn</th>
+            <th scope="col">Produkt status</th>
             <th scope="col">Tildelt til</th>
-            <th scope="col">Status</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each="cases: ${cases}" style="cursor: pointer"
-            th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
-            <td th:text="${cases.getSubject()}"></td>
-            <td th:text="${cases.getAssigned()}"></td>
-            <td th:text="${cases.getCaseOwner()}"></td>
-            <td th:text="${cases.getStatus()}"></td>
+        <tr th:each="mobile: ${mobile}">
+            <td th:text="${mobile.getName()}"></td>
+            <td th:text="${mobile.getStatus()}"></td>
+            <td th:text="${mobile.getProductuser()}"></td>
+        </tr>
+        <tr th:each="tablet: ${tablet}">
+            <td th:text="${tablet.getName()}"></td>
+            <td th:text="${tablet.getStatus()}"></td>
+            <td th:text="${tablet.getProductuser()}"></td>
+        </tr>
+        <tr th:each="pc: ${pc}">
+            <td th:text="${pc.getName()}"></td>
+            <td th:text="${pc.getStatus()}"></td>
+            <td th:text="${pc.getProductuser()}"></td>
+        </tr>
+        <tr th:each="peri: ${peri}">
+            <td th:text="${peri.getName()}"></td>
+            <td th:text="${peri.getStatus()}"></td>
+            <td th:text="${peri.getProductuser()}"></td>
         </tr>
         </tbody>
-    </table>
 
-    <table class="table">
-    <thead class="thead-dark">
-    <br>
-    <h4 align="center">Hardware i brug</h4>
-
-    <tr>
-        <th scope="col">Produkt navn</th>
-        <th scope="col">Produkt status</th>
-        <th scope="col">Tildelt til</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr th:each="mobile: ${mobile}">
-        <td th:text="${mobile.getName()}"></td>
-        <td th:text="${mobile.getStatus()}"></td>
-        <td th:text="${mobile.getProductuser()}"></td>
-    </tr>
-    <tr th:each="tablet: ${tablet}">
-        <td th:text="${tablet.getName()}"></td>
-        <td th:text="${tablet.getStatus()}"></td>
-        <td th:text="${tablet.getProductuser()}"></td>
-    </tr>
-    <tr th:each="pc: ${pc}">
-        <td th:text="${pc.getName()}"></td>
-        <td th:text="${pc.getStatus()}"></td>
-        <td th:text="${pc.getProductuser()}"></td>
-    </tr>
-    <tr th:each="peri: ${peri}">
-        <td th:text="${peri.getName()}"></td>
-        <td th:text="${peri.getStatus()}"></td>
-        <td th:text="${peri.getProductuser()}"></td>
-    </tr>
-    </tbody>
-
-
-
-
-</div>
+    </div>
 </body>
 </html>
