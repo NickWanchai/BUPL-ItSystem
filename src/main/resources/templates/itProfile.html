@@ -4,13 +4,6 @@
     function rowClicked(value) {
         location.href = "/caseProfile/" + value;
     }
-        function deleteClicked(value) {
-        location.href = "/deleteIT/" + value;
-    }
-        function editClicked(value) {
-        location.href = "/itEdit/" + value;
-    }
-
 
 </script>
 <head>
@@ -144,30 +137,58 @@
                 <td th:text="${mobil.getProducttype()}"></td>
             </tr>
 
-            <tr th:each="tablet: ${tablet}">
-                <td th:text="${tablet.getName()}"></td>
-                <td th:text="${tablet.getStatus()}"></td>
-                <td th:text="${tablet.getProducttype()}"></td>
-            </tr>
+        </thead>
 
-            <tr th:each="peripheral: ${peripheral}">
-                <td th:text="${peripheral.getName()}"></td>
-                <td th:text="${peripheral.getStatus()}"></td>
-                <td th:text="${peripheral.getProducttype()}"></td>
-            </tr>
+    <tbody>
+    <tr th:each="cases: ${cases}" style="cursor: pointer"
+        th:onclick="'javascript:rowClicked(\'' + ${cases.getId()} + '\');'">
+        <td th:text="${cases.getSubject()}"></td>
+        <td th:text="${cases.getAssigned()}"></td>
+        <td th:text="${cases.getCaseOwner()}"></td>
+    </tr>
+</table>
 
-            </tbody>
-        </table>
+<!--Hardware-->
 
-            <button>
-                <a th:onclick="'javascript:editClicked(\'' + ${itdep.getId()} + '\');'">Rediger medarbejder</a>
-            </button>
-            <button>
-                <a th:onclick="'javascript:deleteClicked(\'' + ${itdep.getId()} + '\');'">Slet medarbejder</a>
-            </button>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Navn</th>
+                <th scope="col">Status</th>
+                <th scope="col">Type</th>
 
-        </div>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="pc: ${pc}">
+        <td th:text="${pc.getName()}"></td>
+        <td th:text="${pc.getStatus()}"></td>
+        <td th:text="${pc.getProducttype()}"></td>
+    </tr>
+
+    <tr th:each="mobil: ${mobil}">
+        <td th:text="${mobil.getName()}"></td>
+        <td th:text="${mobil.getStatus()}"></td>
+        <td th:text="${mobil.getProducttype()}"></td>
+    </tr>
+
+    <tr th:each="tablet: ${tablet}">
+        <td th:text="${tablet.getName()}"></td>
+        <td th:text="${tablet.getStatus()}"></td>
+        <td th:text="${tablet.getProducttype()}"></td>
+    </tr>
+
+    <tr th:each="peripheral: ${peripheral}">
+        <td th:text="${peripheral.getName()}"></td>
+        <td th:text="${peripheral.getStatus()}"></td>
+        <td th:text="${peripheral.getProducttype()}"></td>
+    </tr>
+
+    </tbody>
+</table>
+
     </div>
-</div>
+
 </body>
 </html>

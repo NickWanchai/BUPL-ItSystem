@@ -5,9 +5,7 @@
     <title>rediger Support</title>
 </head>
 <body>
-<div th:replace="header">...</div>
-<div class="container">
-    <h4>Rediger support medarbejder</h4>
+
 <form action="#"
       th:action="@{/updateSup/{id}(id=${support.id})}"
       th:object="${support}"
@@ -17,13 +15,11 @@
 
     <p>Fornavn: <input type="text" th:field="*{firstName}"></p>
     <p>Efternavn: <input type="text" th:field="*{lastName}"></p>
-    <p>Initialer: <input type="text" th:field="*{initials}"></p>
-    <p>Email: <input type="text" th:field="*{email}"></p>
     <p>Telefonnummer: <input type="number" th:field="*{phoneNumber}"></p>
     <p>Adresse: <input type="text" th:field="*{address}"></p>
     <p>Leder: <input type="text" th:field="*{superior}"></p>
-    <p>Afdelings nummer: <input type="number" th:field="*{department}"></p>
-    <p>Afdelings navn: <input type="text" th:field="*{departmentName}"></p>
+<!--    <p>Afdelings nummer: <input type="number" th:field="*{department}"></p>-->
+<!--    <p>Afdelings navn: <input type="text" th:field="*{departmentName}"></p>-->
 
 
     <input type="submit" value="Opdater" class="btn add" />
@@ -32,6 +28,6 @@
 </form>
 
 
-</div>
+
 </body>
 </html>
