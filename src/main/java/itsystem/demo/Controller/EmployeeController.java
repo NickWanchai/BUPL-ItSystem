@@ -228,8 +228,6 @@ public class EmployeeController {
         return "itProfile";
     }
 
-
-
     @GetMapping("/adminProfile/{id}")
     public String adminProfile(@PathVariable("id") long id, Model model){
         Admin admin = eService.findAdminById(id);
