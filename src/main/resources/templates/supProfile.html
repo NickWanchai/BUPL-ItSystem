@@ -18,6 +18,8 @@
 <body>
 <div th:replace="header">...</div>
 <div class="container">
+    <div class="row">
+        <div class="col-sm-4">
     <h1>Profil</h1>
     <img th:src="${support.getImage()}" alt="Profilbillede" width="150" height="150">
 
@@ -94,8 +96,9 @@
 
 
     </table>
+    </div>
 
-
+    <div class="col-sm-4">
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -161,7 +164,8 @@
         <a th:onclick="'javascript:deleteClicked(\'' + ${support.getId()} + '\');'">Slet medarbejder</a>
     </button>
 
+    </div>
+    </div>
 </div>
-
 </body>
 </html>
