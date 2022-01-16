@@ -28,6 +28,8 @@ public class Employee {
     private String email;
     //password
     private String password;
+    //profilbillede
+    private String image;
 
     public Employee() {
     }
@@ -37,7 +39,7 @@ public class Employee {
         this.departmentName = departmentName;
     }
 
-    public Employee(int department, String departmentName, Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
+    public Employee(int department, String departmentName, Long id, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email, String image){
         this.department = department;
         this.departmentName = departmentName;
         this.id = id;
@@ -49,6 +51,7 @@ public class Employee {
         this.superior = superior;
         this.email = email;
         this.password = password;
+        this.image = image;
     }
 
     public Employee(String firstName, String lastName, int phoneNumber, int department, String superior, String address) {
@@ -60,7 +63,7 @@ public class Employee {
         this.address = address;
     }
 
-    public Employee(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email){
+    public Employee(int department, String departmentName, String firstName, String lastName, String initials, int phoneNumber, String address, String superior, String password, String email, String image){
         this.department = department;
         this.departmentName = departmentName;
         this.firstName = firstName;
@@ -71,6 +74,15 @@ public class Employee {
         this.superior = superior;
         this.email = email;
         this.password = password;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Long getId() {

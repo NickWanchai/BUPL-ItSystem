@@ -59,13 +59,13 @@ public class EmployeeController {
 
         switch (employee.getDepartment()){
             case 1:
-                employee = new Admin(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail());
+                employee = new Admin(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail(), employee.getImage());
                 break;
             case 2:
-                employee = new Support(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail());
+                employee = new Support(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail(), employee.getImage());
                 break;
             case 3:
-                employee = new ITdep(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail());
+                employee = new ITdep(employee.getDepartment(), employee.getDepartmentName(), employee.getFirstName(), employee.getLastName(), employee.getInitials(), employee.getPhoneNumber(), employee.getAddress(), employee.getSuperior(), employee.getPassword(), employee.getEmail(), employee.getImage());
                 break;
             default:
                 employee = new Employee();
